@@ -1,4 +1,4 @@
-import { Urbanist } from "next/font/google";
+import { Geist_Mono, Urbanist } from "next/font/google";
 import "./globals.css";
 import GSAPWrapper from "@/components/elements/gsapWrapper";
 import Navbar from "@/components/layouts/navbar";
@@ -6,7 +6,12 @@ import Navbar from "@/components/layouts/navbar";
 const urbanist = Urbanist({
   variable: "--font-urbanist",
   subsets: ["latin"]
-})
+});
+
+const mono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"]
+});
 
 export const metadata = {
   title: "Larasati Maharani",
@@ -17,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${urbanist.variable} overflow-x-hidden antialiased`}
+        className={`${urbanist.variable} ${mono.variable} overflow-x-hidden antialiased`}
         suppressHydrationWarning
       >
         <Navbar />
