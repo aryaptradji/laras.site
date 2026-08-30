@@ -18,7 +18,7 @@ export default function Hero() {
 
                 {/* Center: headline + placeholder shape */}
                 <div className="order-1 flex flex-col items-center text-center sm:order-2">
-                    <span className="mb-6 inline-flex items-center gap-1 rounded-full border-2 border-foreground px-4 py-1.5 text-sm font-semibold">
+                    <span className="mb-6 inline-flex items-center gap-1 rounded-full border border-gray-200 px-4 py-1.5 text-sm font-semibold">
                         Hello!
                     </span>
 

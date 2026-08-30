@@ -1,7 +1,6 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { X } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 export default function Navbar() {
