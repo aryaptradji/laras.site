@@ -1,16 +1,17 @@
-import { Geist_Mono, Urbanist } from "next/font/google";
+import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 import GSAPWrapper from "@/components/elements/gsapWrapper";
 import Navbar from "@/components/layouts/navbar";
 
-const urbanist = Urbanist({
-  variable: "--font-urbanist",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"]
 });
 
-const mono = Geist_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"]
+const serif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: "400"
 });
 
 export const metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${urbanist.variable} ${mono.variable} overflow-x-hidden antialiased`}
+        className={`${manrope.variable} ${serif.variable} overflow-x-hidden antialiased`}
         suppressHydrationWarning
       >
         <Navbar />

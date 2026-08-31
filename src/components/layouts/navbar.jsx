@@ -1,6 +1,7 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Mail } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 export default function Navbar() {
@@ -54,22 +55,15 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav ref={container} className="fixed z-20 left-1/2 top-6 -translate-x-1/2 w-[90vw] flex items-center justify-between rounded-full font-semibold px-3 py-3 text-sm text-foreground sm:px-6">
-            <div className="flex items-center gap-2.5 border-gray-400">
-                <span className="rounded-full bg-primary w-9 h-9 flex items-center justify-center text-lg ps-0.5">
-                    L
-                </span>
-                <span className="px-4 py-2.5 uppercase text-[11px] font-mono border border-gray-200 rounded-full tracking-wider bg-background/40 backdrop-blur-sm">
-                    Laras / Portfolio
-                </span>
-            </div>
-            <div className="flex gap-2 px-4 py-2.5 rounded-full border border-gray-200 text-[11px] font-mono uppercase bg-background/40 backdrop-blur-sm">
-                <span className="tracking-wider">Menu</span>
-                <div className="relative w-3.5 h-3.5">
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[2.5px] bg-foreground rounded-full rotate-90"></div>
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[2.5px] bg-foreground rounded-full"></div>
-                </div>
-            </div>
+        <nav ref={container} className="fixed z-20 left-1/2 top-6 -translate-x-1/2 flex items-center justify-between gap-6 bg-secondary/40 border border-gray-200 backdrop-blur-sm rounded-full font-semibold px-4 py-2 text-sm">
+            <div className="flex justify-center items-center font-serif font-medium pe-0.5 bg-accent text-white text-lg italic w-8 h-8 rounded-full">L</div>
+            <p>Projects</p>
+            <p>Journey</p>
+            <p>Contact</p>
+            <div className="w-px h-3 bg-gray-400"></div>
+            <button className="bg-gray-200 p-3 rounded-full">
+                <Mail size={16} />
+            </button>
         </nav>
     );
 }
