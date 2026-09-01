@@ -114,13 +114,13 @@ export default function Hero() {
                     </div>
                     <div ref={gallery} className="relative z-3 flex justify-center gap-3 mt-24">
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden">
-                            <Image src="/assets/profile.webp" alt="" fill className="object-cover" />
+                            <Image src="/assets/profile.webp" alt="" fill className="object-cover" priority />
                         </div>
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden">
-                            <Image src="/assets/heroimg4.jpeg" alt="" fill className="object-cover" />
+                            <Image src="/assets/heroimg4.jpeg" alt="" fill className="object-cover" priority />
                         </div>
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden">
-                            <Image src="/assets/heroimg3.jpeg" alt="" fill className="object-cover" />
+                            <Image src="/assets/heroimg3.jpeg" alt="" fill className="object-cover" priority />
                         </div>
                     </div>
                 </div>
