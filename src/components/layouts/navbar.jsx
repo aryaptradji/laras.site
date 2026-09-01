@@ -1,8 +1,8 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Mail } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { LuMail } from "react-icons/lu";
 
 export default function Navbar() {
     const container = useRef(null);
@@ -62,7 +62,7 @@ export default function Navbar() {
             <p>Contact</p>
             <div className="w-px h-3 bg-gray-400"></div>
             <button className="bg-gray-200 p-3 rounded-full">
-                <Mail size={16} />
+                <LuMail size={16} />
             </button>
         </nav>
     );
