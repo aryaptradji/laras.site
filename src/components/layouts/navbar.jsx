@@ -11,6 +11,16 @@ export default function Navbar() {
 
     useGSAP(() => {
         lastScrollY.current = window.scrollY;
+        
+        gsap.fromTo(container.current, {
+            y: "-150%",
+            scale: 0.6,
+        }, {
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            ease: "power2.out"
+        });
 
         const onScroll = () => {
             const y = window.scrollY;
