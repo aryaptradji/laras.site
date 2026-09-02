@@ -18,6 +18,7 @@
   --color-blur: var(--blur);
   --font-manrope: var(--font-manrope);
   --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
 }
 
 @layer base {

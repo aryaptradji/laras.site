@@ -4,37 +4,37 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useRef } from "react";
 
-export default function Projects() {
-    const projects = [
-        {
-            image: "/assets/heroimg2.jpg",
-            title: "Modernizing Medical Intake with Interactive AI Workflows",
-            role: "Alodokter — Sole Product Designer",
-            productName: "Alodokter",
-            productInitial: "A",
-            year: "2026",
-            tags: ["Healthtech", "AI Workflow", "Product Design"],
-        },
-        {
-            image: "/assets/heroimg2.jpg",
-            title: "Modernizing Medical Intake with Interactive AI Workflows",
-            role: "Alodokter — Sole Product Designer",
-            productName: "Alodokter",
-            productInitial: "A",
-            year: "2026",
-            tags: ["Healthtech", "AI Workflow", "Product Design"],
-        },
-        {
-            image: "/assets/heroimg2.jpg",
-            title: "Modernizing Medical Intake with Interactive AI Workflows",
-            role: "Alodokter — Sole Product Designer",
-            productName: "Alodokter",
-            productInitial: "A",
-            year: "2026",
-            tags: ["Healthtech", "AI Workflow", "Product Design"],
-        },
-    ];
+const projects = [
+    {
+        image: "/assets/heroimg2.jpg",
+        title: "Modernizing Medical Intake with Interactive AI Workflows",
+        role: "Alodokter — Sole Product Designer",
+        productName: "Alodokter",
+        productInitial: "A",
+        year: "2026",
+        tags: ["Healthtech", "AI Workflow", "Product Design"],
+    },
+    {
+        image: "/assets/heroimg2.jpg",
+        title: "Modernizing Medical Intake with Interactive AI Workflows",
+        role: "Alodokter — Sole Product Designer",
+        productName: "Alodokter",
+        productInitial: "A",
+        year: "2026",
+        tags: ["Healthtech", "AI Workflow", "Product Design"],
+    },
+    {
+        image: "/assets/heroimg2.jpg",
+        title: "Modernizing Medical Intake with Interactive AI Workflows",
+        role: "Alodokter — Sole Product Designer",
+        productName: "Alodokter",
+        productInitial: "A",
+        year: "2026",
+        tags: ["Healthtech", "AI Workflow", "Product Design"],
+    },
+];
 
+export default function Projects() {
     const labelRef = useRef(null);
     const containerRef = useRef(null);
     const cardRefs = useRef([]);
@@ -66,7 +66,7 @@ export default function Projects() {
     }, []);
 
     return (
-        <div className="relative z-3 w-full mx-auto pt-40 pb-24">
+        <section className="relative z-3 w-full mx-auto pt-40">
             <div className="flex justify-center gap-8 md:gap-12 px-20">
                 <div ref={labelRef}>
                     <h2 className="text-xl font-medium text-foreground">Selected Projects</h2>
@@ -131,6 +131,6 @@ export default function Projects() {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

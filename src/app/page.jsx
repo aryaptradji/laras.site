@@ -1,4 +1,5 @@
 import Hero from "@/components/layouts/hero";
+import Journey from "@/components/layouts/journey";
 import Projects from "@/components/layouts/projects";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <section className="h-full">
       <Hero />
       <Projects />
+      <Journey />
     </section>
   );
 }

@@ -8,10 +8,6 @@ import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 import { LuMail } from "react-icons/lu";
 import { PiLinkedinLogo } from "react-icons/pi";
 import LogoLoop from "../elements/logoLoop";
-import { SiCss, SiFigma, SiGit, SiGithub, SiHtml5, SiJavascript, SiLaravel, SiMysql, SiPhp, SiPostgresql, SiPython } from "react-icons/si";
-import { FaTrello } from "react-icons/fa";
-import { Trello } from "../icons/trello";
-import { Canva } from "../icons/canva";
 
 export default function Hero() {
     const line1 = useRef(null);
@@ -24,8 +20,8 @@ export default function Hero() {
     const buttons = useRef(null);
     const gallery = useRef(null);
     const about = useRef(null);
-
     const [logoSize, setLogoSize] = useState({ height: 60, gap: 80 });
+
     const techLogos = [
         { node: <Image title="Postman" src="/assets/icons/postman.svg" width={100} height={100} alt="Postman" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://postman.com" },
         { node: <Image title="Katalon" src="/assets/icons/katalon.svg" width={100} height={100} alt="Katalon" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://katalon.com" },
