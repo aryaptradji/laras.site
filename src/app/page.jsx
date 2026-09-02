@@ -1,9 +1,11 @@
 import Hero from "@/components/layouts/hero";
+import Projects from "@/components/layouts/projects";
 
 export default function Home() {
   return (
-    <div className="">
+    <section className="h-full">
       <Hero />
-    </div>
+      <Projects />
+    </section>
   );
 }

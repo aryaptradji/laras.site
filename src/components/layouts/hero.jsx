@@ -158,7 +158,7 @@ export default function Hero() {
             </div>
             <LogoLoop
                 logos={techLogos}
-                speed={100}
+                speed={80}
                 direction="left"
                 logoHeight={logoSize.height}
                 gap={logoSize.gap}
@@ -168,7 +168,6 @@ export default function Hero() {
                 fadeOutColor="var(--primary)"
                 className="relative z-3"
             />
-            <div className="h-screen"></div>
         </section>
     );
 }
