@@ -3,10 +3,15 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 import { LuMail } from "react-icons/lu";
 import { PiLinkedinLogo } from "react-icons/pi";
+import LogoLoop from "../elements/logoLoop";
+import { SiCss, SiFigma, SiGit, SiGithub, SiHtml5, SiJavascript, SiLaravel, SiMysql, SiPhp, SiPostgresql, SiPython } from "react-icons/si";
+import { FaTrello } from "react-icons/fa";
+import { Trello } from "../icons/trello";
+import { Canva } from "../icons/canva";
 
 export default function Hero() {
     const line1 = useRef(null);
@@ -19,6 +24,28 @@ export default function Hero() {
     const buttons = useRef(null);
     const gallery = useRef(null);
     const about = useRef(null);
+
+    const [logoSize, setLogoSize] = useState({ height: 60, gap: 80 });
+    const techLogos = [
+        { node: <Image title="Postman" src="/assets/icons/postman.svg" width={100} height={100} alt="Postman" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://postman.com" },
+        { node: <Image title="Katalon" src="/assets/icons/katalon.svg" width={100} height={100} alt="Katalon" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://katalon.com" },
+        { node: <Image title="Power BI" src="/assets/icons/powerbi.svg" width={100} height={100} alt="Power BI" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://powerbi.microsoft.com" },
+        { node: <Image title="Excel" src="/assets/icons/excel.svg" width={100} height={100} alt="Excel" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://office.microsoft.com/excel" },
+        { node: <Image title="Cucumber" src="/assets/icons/cucumber.svg" width={100} height={100} alt="Cucumber" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://cucumber.io" },
+        { node: <Image title="Trello" src="/assets/icons/trello.svg" width={100} height={100} alt="Trello" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://trello.com" },
+        { node: <Image title="Git" src="/assets/icons/git.svg" width={100} height={100} alt="Git" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://git-scm.com" },
+        { node: <Image title="GitHub" src="/assets/icons/github.svg" width={100} height={100} alt="GitHub" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://github.com" },
+        { node: <Image title="Figma" src="/assets/icons/figma.svg" width={100} height={100} alt="Figma" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://figma.com" },
+        { node: <Image title="Canva" src="/assets/icons/canva.svg" width={100} height={100} alt="Canva" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://canva.com" },
+        { node: <Image title="MySQL" src="/assets/icons/mysql.svg" width={100} height={100} alt="MySQL" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://mysql.com" },
+        { node: <Image title="PostgreSQL" src="/assets/icons/postgresql.svg" width={100} height={100} alt="PostgreSQL" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://postgresql.org" },
+        { node: <Image title="Python" src="/assets/icons/python.svg" width={100} height={100} alt="Python" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://python.org" },
+        { node: <Image title="PHP" src="/assets/icons/php.svg" width={100} height={100} alt="PHP" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://php.net" },
+        { node: <Image title="HTML5" src="/assets/icons/html5.svg" width={100} height={100} alt="HTML5" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://html.spec.whatwg.org/" },
+        { node: <Image title="CSS" src="/assets/icons/css.svg" width={100} height={100} alt="CSS" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://www.w3.org/Style/CSS/" },
+        { node: <Image title="JavaScript" src="/assets/icons/javascript.svg" width={100} height={100} alt="JavaScript" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+        { node: <Image title="Laravel" src="/assets/icons/laravel.svg" width={100} height={100} alt="Laravel" style={{ height: logoSize.height, width: 'auto' }} />, href: "https://laravel.com" },
+    ];
 
     useGSAP(() => {
         const lineTl = gsap.timeline({ defaults: { ease: "none" } });
@@ -51,7 +78,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="flex flex-col items-center relative bg-primary px-4 sm:px-8" id="hero">
+        <section className="flex flex-col items-center relative bg-primary px-4 sm:px-20" id="hero">
             <div
                 className="absolute inset-0 z-2"
                 style={{
@@ -114,7 +141,7 @@ export default function Hero() {
                     </div>
                     <div ref={gallery} className="relative z-3 flex justify-center gap-3 mt-24">
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden">
-                            <Image src="/assets/profile.webp" alt="" fill className="object-cover" priority />
+                            <Image src="/assets/heroimg1.jpg" alt="" fill className="object-cover" priority />
                         </div>
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden">
                             <Image src="/assets/heroimg4.jpeg" alt="" fill className="object-cover" priority />
@@ -125,10 +152,23 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
-            <div ref={about} className="text-2xl font-medium w-[50%] py-28">
+            <div ref={about} className="relative z-3 text-2xl font-medium w-[50%] py-28 mb-4">
                 <span>System Analyst focused on requirement gathering, process mapping, and bridging stakeholders with development teams.</span>
                 <span className="text-foreground-2">Outside of documentation and flowcharts, you&apos;ll find me binge-watching Netflix.</span>
             </div>
+            <LogoLoop
+                logos={techLogos}
+                speed={100}
+                direction="left"
+                logoHeight={logoSize.height}
+                gap={logoSize.gap}
+                hoverSpeed={0}
+                scaleOnHover={true}
+                fadeOut={true}
+                fadeOutColor="var(--primary)"
+                className="relative z-3"
+            />
+            <div className="h-screen"></div>
         </section>
     );
 }
