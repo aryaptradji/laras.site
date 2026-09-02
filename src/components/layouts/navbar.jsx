@@ -1,17 +1,27 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
-import { LuMail } from "react-icons/lu";
+import { useRef, useState } from "react";
+import { LuMail, LuCheck } from "react-icons/lu";
 
 export default function Navbar() {
     const container = useRef(null);
     const lastScrollY = useRef(0);
     const hidden = useRef(false);
 
+    const [copied, setCopied] = useState(false);
+    const [hovered, setHovered] = useState(false);
+    const email = "larasatimaharanii@gmail.com";
+
+    const handleCopy = async () => {
+        await navigator.clipboard.writeText(email);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     useGSAP(() => {
         lastScrollY.current = window.scrollY;
-        
+
         gsap.fromTo(container.current, {
             y: "-150%",
             scale: 0.6,
@@ -62,6 +72,7 @@ export default function Navbar() {
         };
 
         window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
     return (
@@ -71,8 +82,23 @@ export default function Navbar() {
             <p>Journey</p>
             <p>Contact</p>
             <div className="w-px h-3 bg-gray-400"></div>
-            <button className="bg-gray-200 p-3 rounded-full">
-                <LuMail size={16} />
+            <button
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                onClick={handleCopy}
+                className="group flex items-center gap-0 bg-gray-200 p-3 rounded-full border border-transparent hover:border-accent hover:text-accent transition-colors duration-500"
+            >
+                {copied ? <LuCheck size={16} /> : <LuMail size={16} />}
+                <span
+                    className="grid overflow-hidden transition-all duration-300 ease-in-out"
+                    style={{
+                        gridTemplateColumns: hovered ? "1fr" : "0fr",
+                    }}
+                >
+                    <span className="overflow-hidden whitespace-nowrap">
+                        <span className="pl-1">{copied ? "Copied!" : "Copy Email"}</span>
+                    </span>
+                </span>
             </button>
         </nav>
     );
