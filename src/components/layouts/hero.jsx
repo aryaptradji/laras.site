@@ -135,14 +135,14 @@ export default function Hero() {
                         </button>
                         <button className="bg-neutral-200 rounded-full font-medium text-lg text-foreground px-8 py-3 border-2 border-transparent hover:border-accent hover:text-accent transition-all duration-500">View Resume</button>
                     </div>
-                    <div ref={gallery} className="relative z-3 flex justify-center gap-3 mt-24">
-                        <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden">
-                            <Image src="/assets/heroimg1.jpg" alt="" fill className="object-cover" priority />
-                        </div>
-                        <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden">
+                    <div ref={gallery} className="relative z-3 flex justify-center gap-6 mt-24">
+                        <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden shadow-2xl">
                             <Image src="/assets/heroimg4.jpeg" alt="" fill className="object-cover" priority />
                         </div>
-                        <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden">
+                        <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                            <Image src="/assets/hero-profile.jpg" alt="" fill className="object-cover" priority />
+                        </div>
+                        <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden shadow-2xl">
                             <Image src="/assets/heroimg3.jpeg" alt="" fill className="object-cover" priority />
                         </div>
                     </div>

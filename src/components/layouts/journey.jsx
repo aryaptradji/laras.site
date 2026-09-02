@@ -10,9 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const journeys = [
     {
-        period: "2025",
-        company: "Alodokter",
-        role: "Product Designer",
+        period: "Dec 2025 - Jun 2026",
+        company: "Kementerian Keuangan",
+        role: "System Analyst",
         highlights: [
             "Owned the design of Alodokter's flagship products across five squads — Core, Chat, Aloshop, Aloproteksi, and Alomedika — serving over 30 million monthly users and 80,000+ doctors.",
             "Built and maintained a comprehensive design system and token architecture, increasing library accessibility by 400% and accelerating design-to-development handover by 3x.",
@@ -98,6 +98,7 @@ export default function Journey() {
             <h2 ref={headingRef} className="text-xl font-medium text-foreground mb-8">
                 My Journey
             </h2>
+            {/* <p className="text-foreground-2 mt-1">Pengalaman Kerja</p> */}
 
             <div className="border-t border-neutral-200">
                 {journeys.map((journey, index) => {
@@ -113,13 +114,13 @@ export default function Journey() {
                                 onClick={() => toggle(index)}
                                 className="group flex items-center gap-6 py-6 cursor-pointer transition-colors duration-300 hover:bg-accent/5"
                             >
-                                <span className="w-[24%] shrink-0 text-neutral-400 font-mono text-lg">
+                                <span className="w-[24%] shrink-0 text-neutral-400 font-mono text-md">
                                     {journey.period}
                                 </span>
-                                <span className="flex-1 text-3xl font-medium text-foreground">
+                                <span className="flex-1 text-2xl font-medium text-foreground">
                                     {journey.company}
                                 </span>
-                                <span className="text-3xl font-medium text-foreground">
+                                <span className="text-2xl font-medium text-foreground">
                                     {journey.role}
                                 </span>
                                 <FiArrowDownRight

@@ -80,6 +80,7 @@ export default function Navbar() {
             <div className="flex justify-center items-center font-serif font-medium pe-0.5 bg-accent text-white text-lg italic w-8 h-8 rounded-full">L</div>
             <p>Projects</p>
             <p>Journey</p>
+            <p>Sertificate</p>
             <p>Contact</p>
             <div className="w-px h-3 bg-gray-400"></div>
             <button
