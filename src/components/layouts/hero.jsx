@@ -101,9 +101,9 @@ export default function Hero() {
                         </span>
                         <span>1+ Years of Experience</span>
                     </p>
-                    <div ref={intro} className="relative z-3 text-center text-4xl px-[26%] leading-snug tracking-tighter mb-8">
-                        <span>Hi! I&apos;m <span className="text-accent">Laras</span>. I bridge <span className="underline">business needs</span> and technical systems.</span>
-                        <span className="text-foreground-2"> Currently open to new opportunities as System Analyst.</span>
+                    <div ref={intro} className="relative z-3 text-center text-3xl px-[26%] leading-snug tracking-tighter mb-8">
+                        <span>Hi! I&apos;m <span className="text-accent">Laras</span>. I bridge <span className="underline">user needs</span> and technical solutions, turning complex problems into clear requirements, processes, and system solutions.</span>
+                        <span className="text-foreground-2"> Currently open to opportunities as a System Analyst.</span>
                     </div>
                     <div ref={links} className="relative z-3 flex gap-6 justify-center text-lg text-foreground-2 font-medium tracking-tighter">
                         <Link href="https://www.linkedin.com/in/laras-maharani" className="hover:text-foreground transition-colors duration-500" target="_blank">
