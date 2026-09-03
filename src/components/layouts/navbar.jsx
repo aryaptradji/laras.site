@@ -2,7 +2,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef, useState } from "react";
-import { LuMail, LuCheck } from "react-icons/lu";
+import { LuMail, LuCheck, LuCopy } from "react-icons/lu";
 
 export default function Navbar() {
     const container = useRef(null);
@@ -87,11 +87,11 @@ export default function Navbar() {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 onClick={handleCopy}
-                className="group flex items-center gap-0 bg-gray-200 p-3 rounded-full border border-transparent hover:border-accent hover:text-accent transition-colors duration-500"
+                className={`group flex items-center gap-1 bg-gray-200 py-2.5 ps-3 ${hovered ? "pe-3" : "pe-2"} rounded-full border border-transparent hover:border-accent hover:text-accent transition-all duration-500 ease-in-out`}
             >
-                {copied ? <LuCheck size={16} /> : <LuMail size={16} />}
+                {copied ? <LuCheck size={16} /> : hovered ? <LuCopy size={14} /> : <LuMail size={16} />}
                 <span
-                    className="grid overflow-hidden transition-all duration-300 ease-in-out"
+                    className="grid overflow-hidden transition-all duration-500 ease-in-out"
                     style={{
                         gridTemplateColumns: hovered ? "1fr" : "0fr",
                     }}
