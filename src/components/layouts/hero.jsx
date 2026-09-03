@@ -149,9 +149,9 @@ export default function Hero() {
                 </div>
             </div>
             <div ref={about} className="relative z-3 text-2xl font-medium w-[50%] py-28 mb-4">
-                <span>System Analyst focused on requirement gathering, process mapping, and bridging stakeholders with development teams.</span>
-                <span className="text-foreground-2">Outside of documentation and flowcharts, you&apos;ll find me binge-watching Netflix.</span>
-            </div>
+                <span>Give me a messy problem and I&apos;ll probably start connecting the dots.</span>
+                <span className="text-foreground-2"> I enjoy making complex things feel a little simpler — preferably with a good cup of coffee in hand.</span>
+             </div>
             <LogoLoop
                 logos={techLogos}
                 speed={80}
