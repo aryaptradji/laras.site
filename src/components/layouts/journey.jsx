@@ -74,10 +74,9 @@ export default function Journey() {
 
     useGSAP(() => {
         const targets = [headingRef.current, ...rowRefs.current];
-
-        gsap.fromTo(
+        gsap.set(targets, { opacity: 0, y: 40 });
+        gsap.to(
             targets,
-            { opacity: 0, y: 40 },
             {
                 opacity: 1,
                 y: 0,
@@ -86,8 +85,8 @@ export default function Journey() {
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top 80%",
-                    toggleActions: "play none none none",
+                    start: "top 60%",
+                    toggleActions: "play none none reverse",
                 },
             }
         );
@@ -98,7 +97,6 @@ export default function Journey() {
             <h2 ref={headingRef} className="text-xl font-medium text-foreground mb-8">
                 My Journey
             </h2>
-            {/* <p className="text-foreground-2 mt-1">Pengalaman Kerja</p> */}
 
             <div className="border-t border-neutral-200">
                 {journeys.map((journey, index) => {
