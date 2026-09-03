@@ -122,7 +122,7 @@ export default function Navbar() {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 onClick={handleCopy}
-                className={`group flex items-center gap-1 bg-gray-200 py-2.5 ps-3 ${hovered ? "pe-3" : "pe-2"} rounded-full border border-transparent hover:border-accent hover:text-accent transition-all duration-500 ease-in-out`}
+                className={`group flex items-center gap-1 bg-gray-200 py-2.5 ps-3 ${hovered ? "pe-3" : "pe-2"} rounded-full border border-transparent hover:border-accent hover:text-accent transition-all duration-500 ease-in-out cursor-pointer`}
             >
                 {copied ? <LuCheck size={16} /> : hovered ? <LuCopy size={14} /> : <LuMail size={16} />}
                 <span
