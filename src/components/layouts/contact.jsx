@@ -7,6 +7,8 @@ import { LuMail } from "react-icons/lu";
 import { FiGithub } from "react-icons/fi";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { scrollToSection } from "@/lib/scroll";
 
 const socials = [
     { name: "Linkedin", icon: PiLinkedinLogo, href: "https://www.linkedin.com/in/laras-maharani" },
@@ -15,10 +17,10 @@ const socials = [
 ];
 
 const navLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "Projects", href: "#projects" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { label: "Home", id: "hero" },
+    { label: "Projects", id: "projects" },
+    { label: "Journey", id: "journey" },
+    { label: "Sertificate", id: "sertificate" },
 ];
 
 export default function Contact() {
@@ -118,14 +120,15 @@ export default function Contact() {
                 </div>
 
                 <div className="flex gap-6 text-foreground">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="hover:text-accent transition-colors duration-300"
+                    {navLinks.map((link, index) => (
+                        <button
+                            type="button"
+                            key={index}
+                            onClick={() => scrollToSection(link.id)}
+                            className="hover:text-accent transition-colors duration-300 cursor-pointer"
                         >
-                            {link.name}
-                        </Link>
+                            {link.label}
+                        </button>
                     ))}
                 </div>
             </div >

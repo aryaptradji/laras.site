@@ -1,7 +1,7 @@
 "use client";
+import { scrollToSection } from "@/lib/scroll";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useRef, useState } from "react";
 import { LuMail, LuCheck, LuCopy } from "react-icons/lu";
 
@@ -20,16 +20,6 @@ export default function Navbar() {
         { label: "Sertificate", id: "sertificate" },
         { label: "Contact", id: "contact" },
     ];
-
-    const scrollToSection = (id) => {
-        const smoother = ScrollSmoother.get();
-        const el = document.getElementById(id);
-        if (smoother && el) {
-            smoother.scrollTo(el, true, "top top");
-        } else if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-    };
 
     const handleCopy = async () => {
         await navigator.clipboard.writeText(email);
@@ -89,13 +79,29 @@ export default function Navbar() {
             lastScrollY.current = y;
         };
 
+        const onReveal = () => {
+            hidden.current = false;
+            gsap.to(container.current, {
+                y: 0,
+                scale: 1,
+                duration: 0.5,
+                ease: "power2.out",
+            });
+        };
+
         window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
+        window.addEventListener("showNavbar", onReveal);
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("showNavbar", onReveal);
+        };
     }, []);
 
     return (
         <nav ref={container} className="fixed z-20 left-1/2 top-6 -translate-x-1/2 flex items-center justify-between gap-6 bg-secondary/40 border border-gray-200 backdrop-blur-sm rounded-full font-semibold px-4 py-2 text-sm">
             <button
+                type="button"
                 onClick={() => scrollToSection("hero")}
                 className="flex justify-center items-center font-serif font-medium pe-0.5 bg-accent text-white text-lg italic w-8 h-8 rounded-full cursor-pointer"
             >
@@ -103,6 +109,7 @@ export default function Navbar() {
             </button>
             {navItems.map((item) => (
                 <button
+                    type="button"
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
                     className="hover:text-accent transition-colors duration-300 cursor-pointer"
