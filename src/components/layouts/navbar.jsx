@@ -1,6 +1,7 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useRef, useState } from "react";
 import { LuMail, LuCheck, LuCopy } from "react-icons/lu";
 
@@ -12,6 +13,23 @@ export default function Navbar() {
     const [copied, setCopied] = useState(false);
     const [hovered, setHovered] = useState(false);
     const email = "larasatimaharanii@gmail.com";
+
+    const navItems = [
+        { label: "Projects", id: "projects" },
+        { label: "Journey", id: "journey" },
+        { label: "Sertificate", id: "sertificate" },
+        { label: "Contact", id: "contact" },
+    ];
+
+    const scrollToSection = (id) => {
+        const smoother = ScrollSmoother.get();
+        const el = document.getElementById(id);
+        if (smoother && el) {
+            smoother.scrollTo(el, true, "top top");
+        } else if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
 
     const handleCopy = async () => {
         await navigator.clipboard.writeText(email);
@@ -77,11 +95,21 @@ export default function Navbar() {
 
     return (
         <nav ref={container} className="fixed z-20 left-1/2 top-6 -translate-x-1/2 flex items-center justify-between gap-6 bg-secondary/40 border border-gray-200 backdrop-blur-sm rounded-full font-semibold px-4 py-2 text-sm">
-            <div className="flex justify-center items-center font-serif font-medium pe-0.5 bg-accent text-white text-lg italic w-8 h-8 rounded-full">L</div>
-            <p>Projects</p>
-            <p>Journey</p>
-            <p>Sertificate</p>
-            <p>Contact</p>
+            <button
+                onClick={() => scrollToSection("hero")}
+                className="flex justify-center items-center font-serif font-medium pe-0.5 bg-accent text-white text-lg italic w-8 h-8 rounded-full cursor-pointer"
+            >
+                L
+            </button>
+            {navItems.map((item) => (
+                <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="hover:text-accent transition-colors duration-300 cursor-pointer"
+                >
+                    {item.label}
+                </button>
+            ))}
             <div className="w-px h-3 bg-gray-400"></div>
             <button
                 onMouseEnter={() => setHovered(true)}

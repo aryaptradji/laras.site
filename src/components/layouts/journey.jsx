@@ -4,9 +4,6 @@ import Link from "next/link";
 import { FiArrowDownRight } from "react-icons/fi";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const journeys = [
     {
@@ -93,7 +90,7 @@ export default function Journey() {
     }, []);
 
     return (
-        <div ref={containerRef} className="relative z-3 w-[74%] mx-auto px-4 py-28">
+        <section ref={containerRef} className="relative z-3 w-[74%] mx-auto px-4 py-28" id="journey">
             <h2 ref={headingRef} className="text-xl font-medium text-foreground mb-8">
                 My Journey
             </h2>
@@ -161,6 +158,6 @@ export default function Journey() {
                     More on my resume
                 </Link>
             </div>
-        </div>
+        </section>
     );
 }

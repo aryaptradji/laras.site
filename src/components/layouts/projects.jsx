@@ -66,7 +66,7 @@ export default function Projects() {
     }, []);
 
     return (
-        <section className="relative z-3 w-full mx-auto pt-40">
+        <section className="relative z-3 w-full mx-auto pt-40" id="projects">
             <div className="flex justify-center gap-8 md:gap-12 px-20">
                 <div ref={labelRef}>
                     <h2 className="text-xl font-medium text-foreground">Selected Projects</h2>
