@@ -57,7 +57,7 @@ export default function Contact() {
     }, []);
 
     return (
-        <section className="relative z-3 w-[73%] mx-auto pb-24">
+        <section className="relative z-3 w-[73%] mx-auto pb-20">
             <div
                 ref={container}
                 className="w-full relative overflow-hidden rounded-[2.5rem] flex flex-col items-center text-center py-14 px-6"
