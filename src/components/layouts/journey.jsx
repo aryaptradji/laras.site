@@ -9,7 +9,7 @@ const journeys = [
     {
         period: "Dec 2025 - Jun 2026",
         company: "Kementerian Keuangan",
-        role: "System Analyst & UI/UX Designer Intern",
+        role: "System Analyst & UI/UX Intern",
         highlights: [
             "Analyzed business and user requirements for the re-engineering of Kemenkeu Learning Center (KLC), producing BRD, business process models, wireframes, and UI/UX designs.",
             "Defined system features and user flows for KLC based on requirement analysis and user needs.",
