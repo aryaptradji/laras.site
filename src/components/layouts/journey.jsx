@@ -11,9 +11,13 @@ const journeys = [
         company: "Kementerian Keuangan",
         role: "System Analyst & UI/UX Designer Intern",
         highlights: [
-            "Analyzed user requirements and business processes for the re-engineering of Kemenkeu Learning Center (KLC) and Room Management System (RMS) V2.",
-            "Produced Business Requirement Documents (BRD) and Business Process Model and Notation (BPMN) to support system development and implementation.",
-            "Designed user flows, wireframes, and interactive UI/UX prototypes based on requirement gathering and user evaluation.",
+            "Analyzed business and user requirements for the re-engineering of Kemenkeu Learning Center (KLC), producing BRD, business process models, wireframes, and UI/UX designs.",
+            "Defined system features and user flows for KLC based on requirement analysis and user needs.",
+            "Contributed to the development of an educational game for Be A Champion (BAC) as an interactive learning medium for Kemenkeu Learning Festival.",
+            "Designed monthly learning analytics reports and BPPK Dalam Angka dashboards to present learning data and statistics in a more informative and interactive format.",
+            "Supported the preparation and execution of interactive mini games for Kemenkeu Learning Festival 2026, including visual concepts, game briefings, property coordination, and event ambience.",
+            "Prepared the Business Requirement Document (BRD) for Room Management System (RMS) V2, defining business requirements, system needs, and process flows.",
+            "Developed a user manual for KLC Office to support system usage and standardize system documentation."
         ],
     },
     {
@@ -21,8 +25,8 @@ const journeys = [
         company: "PT Levi Strauss Indonesia",
         role: "IT Business Analyst Intern",
         highlights: [
-            "Developed interactive Power BI KPI dashboards and sell-through reports supporting sales performance analysis across five Southeast Asian markets.",
-            "Managed, validated, and analyzed 30,000+ sales records using SQL and integrated SAP and internal data sources into Power BI for automated reporting.",
+            "Developed interactive Power BI KPI dashboards and sell-through reports supporting sales performance analysis across five Southeast Asian markets (Indonesia, Malaysia, Singapore, Thailand, and the Philippines). ",
+            "Managed, validated, and analyzed 30,000+ sales records by querying SQL databases and integrating SAP and internal data sources into Power BI, enabling automated reporting and actionable insights into revenue growth, sales trends, and product performance.",
             "Designed Figma dashboard prototypes, translating business requirements into interactive reporting solutions.",
         ],
     },

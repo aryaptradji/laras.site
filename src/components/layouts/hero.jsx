@@ -150,7 +150,7 @@ export default function Hero() {
             </div>
             <div ref={about} className="relative z-3 text-2xl font-medium w-[50%] py-28 mb-4">
                 <span>Give me a messy problem and I&apos;ll probably start connecting the dots.</span>
-                <span className="text-foreground-2"> I enjoy making complex things feel a little simpler — preferably with a good cup of coffee in hand.</span>
+                <span className="text-foreground-2"> I enjoy making complex things feel a little simpler, preferably with a good cup of coffee in hand.</span>
              </div>
             <LogoLoop
                 logos={techLogos}
