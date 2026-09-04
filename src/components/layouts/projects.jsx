@@ -163,10 +163,10 @@ export default function Projects() {
 
               <div className="flex flex-col justify-between py-2 pr-2 flex-1">
                 <div>
-                  <h3 className="text-2xl font-medium text-foreground leading-snug">
+                  <h3 className="text-xl font-medium text-foreground leading-snug">
                     {project.title}
                   </h3>
-                  <p className="text-foreground-2 mt-2">{project.role}</p>
+                  <p className="text-sm text-foreground-2 mt-2">{project.role}</p>
 
                   <div className="h-px bg-neutral-200 my-6" />
 
@@ -200,7 +200,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-full border border-neutral-200 text-sm text-foreground-2"
+                      className="px-2 py-1 rounded-full border border-neutral-200 text-xs text-foreground-2"
                     >
                       {tag}
                     </span>

@@ -1,3 +1,4 @@
+import Certificates from "@/components/layouts/certificates";
 import Contact from "@/components/layouts/contact";
 import Footer from "@/components/layouts/footer";
 import Hero from "@/components/layouts/hero";
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <Projects />
       <Journey />
+      <Certificates />
       <Contact />
       <Footer />
     </section>
