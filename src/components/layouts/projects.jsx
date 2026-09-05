@@ -7,7 +7,7 @@ import { useRef } from "react";
 
 const projects = [
   {
-    image: "/assets/heroimg2.jpg",
+    image: "/assets/projects/klc.jpg",
     title: "Kemenkeu Learning Center (KLC) Re-engineering",
     url: "/kemenkeu-learning-center",
     role: "System Analyst & UI/UX Designer",
@@ -29,7 +29,7 @@ const projects = [
     ],
   },
   {
-    image: "/assets/heroimg2.jpg",
+    image: "/assets/projects/complainthub.jpg",
     title: "Complaint Hub – AI-Powered Complaint Management System",
     url: "/complaint-hub",
     role: "Fullstack & AI Engineer",
@@ -55,7 +55,7 @@ const projects = [
     ],
   },
   {
-    image: "/assets/heroimg2.jpg",
+    image: "/assets/projects/smartcat-feeder.jpg",
     title: "Smart Cat Feeder – IoT Monitoring System",
     url: "/smart-cat-feeder",
     role: "Team Lead & Web Developer",
@@ -79,7 +79,7 @@ const projects = [
     ],
   },
   {
-    image: "/assets/heroimg2.jpg",
+    image: "/assets/projects/empathi-care.jpg",
     title: "EmpathiCare – Mental Health Care Platform",
     url: "/empathi-care",
     role: "Quality Engineer",
@@ -151,11 +151,15 @@ export default function Projects() {
 
         <div ref={containerRef} className="flex flex-col gap-4 w-[66%] h-full">
           {projects.map((project, index) => (
-            <Link key={index} href={project.url}>
+            <Link key={index}
+              href={project.url}
+              ref={(el) => (cardRefs.current[index] = el)} 
+              style={{ zIndex: index + 1 }}               
+              className="block w-full"                   
+            >
               <div
-                ref={(el) => (cardRefs.current[index] = el)}
                 className="group w-full h-100 max-h-100 bg-secondary border border-neutral-200 rounded-4xl p-4 flex flex-col md:flex-row gap-8"
-                style={{ zIndex: index + 1 }}
+              // style={{ zIndex: index + 1 }}
               >
                 <div className="relative w-full md:w-[48%] h-full rounded-3xl overflow-hidden shrink-0">
                   <Image
@@ -165,16 +169,16 @@ export default function Projects() {
                     className="object-cover"
                   />
                 </div>
-              
+
                 <div className="flex flex-col justify-between py-2 pr-2 flex-1">
                   <div>
                     <h3 className="text-xl font-medium text-foreground leading-snug group-hover:underline">
                       {project.title}
                     </h3>
                     <p className="text-sm text-foreground-2 mt-2">{project.role}</p>
-              
+
                     <div className="h-px bg-neutral-200 my-6" />
-              
+
                     <div className="flex gap-16">
                       <div>
                         <p className="text-xs text-foreground-2">Product</p>
@@ -200,7 +204,7 @@ export default function Projects() {
                       </div>
                     </div>
                   </div>
-              
+
                   <div className="flex flex-wrap gap-2 mt-8">
                     {project.tags.map((tag) => (
                       <span
