@@ -122,11 +122,11 @@ export default function Journey() {
                                 }}
                             >
                                 <div className="overflow-hidden">
-                                    <ul className="pb-8 pr-16 space-y-4">
+                                    <ul className="pb-8 pr-16 space-y-2">
                                         {journey.highlights.map((point, i) => (
                                             <li
                                                 key={i}
-                                                className="flex gap-3 text-foreground-2 text-base leading-relaxed"
+                                                className="flex gap-3 text-neutral-500 text-base leading-relaxed"
                                             >
                                                 <span className="mt-2.5 w-1 h-1 rounded-full bg-foreground-2 shrink-0" />
                                                 <span>{point}</span>

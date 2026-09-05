@@ -29,7 +29,7 @@ const projects = [
   {
     image: "/assets/heroimg2.jpg",
     title: "Complaint Hub – AI-Powered Complaint Management System",
-    role: "Fullstack Engineer",
+    role: "Fullstack & AI Engineer",
     productName: "Complaint Hub",
     productInitial: "/assets/complainthub.png",
     year: "2025",
@@ -54,7 +54,7 @@ const projects = [
   {
     image: "/assets/heroimg2.jpg",
     title: "Smart Cat Feeder – IoT Monitoring System",
-    role: "Team Lead & Developer",
+    role: "Team Lead & Web Developer",
     productName: "Smart Cat Feeder",
     productInitial: "/assets/smartcatfeeder.jpg",
     year: "2024",
@@ -138,8 +138,8 @@ export default function Projects() {
     <section className="relative z-3 w-full mx-auto pt-40" id="projects">
       <div className="flex justify-center gap-8 md:gap-12 px-20">
         <div ref={labelRef}>
-          <h2 className="text-xl font-medium text-foreground">
-            Selected Projects
+          <h2 className="text-xl font-medium text-foreground text-nowrap">
+            Featured Projects
           </h2>
           <p className="text-foreground-2 mt-1">Case Studies</p>
         </div>
@@ -200,7 +200,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 rounded-full border border-neutral-200 text-xs text-foreground-2"
+                      className="px-2 py-1 rounded-full border bg-neutral-100 border-neutral-300 text-xs text-black"
                     >
                       {tag}
                     </span>
