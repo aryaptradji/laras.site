@@ -2,6 +2,8 @@ import { Geist_Mono, Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 import GSAPWrapper from "@/components/elements/gsapWrapper";
 import Navbar from "@/components/layouts/navbar";
+import Contact from "@/components/layouts/contact";
+import Footer from "@/components/layouts/footer";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -34,6 +36,8 @@ export default function RootLayout({ children }) {
         <Navbar />
         <GSAPWrapper>
           {children}
+          <Contact />
+          <Footer />
         </GSAPWrapper>
       </body>
     </html>
