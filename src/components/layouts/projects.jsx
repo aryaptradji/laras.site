@@ -15,25 +15,26 @@ const projects = [
     productInitial: "/assets/logo-klc.jpg",
     year: "2026",
     tags: [
-      "Business Analysis",
       "Requirements Analysis",
-      "BPMN",
+      "Business Analysis",
+      "User Research",
       "BRD",
+      "Functional Requirements",
+      "BPMN",
       "Process Mapping",
       "Use Case",
       "User Flow",
-      "UI/UX",
+      "UI/UX Design",
       "Wireframing",
       "Prototyping",
-      "Figma",
     ],
   },
   {
     image: "/assets/projects/complainthub.jpg",
-    title: "Complaint Hub – AI-Powered Complaint Management System",
+    title: "Web-Based Citizen Complaint System with Sentiment Analysis",
     url: "/complaint-hub",
     role: "Fullstack & AI Engineer",
-    productName: "Complaint Hub",
+    productName: "Citizen Complaint System",
     productInitial: "/assets/complainthub.png",
     year: "2025",
     tags: [
@@ -42,8 +43,6 @@ const projects = [
       "MySQL",
       "Python",
       "FastAPI",
-      "TensorFlow",
-      "Keras",
       "Bi-LSTM",
       "Sentiment Analysis",
       "System Design",
@@ -58,21 +57,16 @@ const projects = [
     image: "/assets/projects/smartcat-feeder.jpg",
     title: "Smart Cat Feeder – IoT Monitoring System",
     url: "/smart-cat-feeder",
-    role: "Team Lead & Web Developer",
+    role: "Team Lead & IoT/Web Developer",
     productName: "Smart Cat Feeder",
     productInitial: "/assets/smartcatfeeder.jpg",
     year: "2024",
     tags: [
       "IoT",
       "Web Development",
-      "Laravel",
+      "PHP",
+      "CodeIgniter 4",
       "MySQL",
-      "Python",
-      "FastAPI",
-      "TensorFlow",
-      "Keras",
-      "Bi-LSTM",
-      "Sentiment Analysis",
       "Real-time Dashboard",
       "System Integration",
       "Team Leadership",
@@ -151,15 +145,16 @@ export default function Projects() {
 
         <div ref={containerRef} className="flex flex-col gap-4 w-[66%] h-full">
           {projects.map((project, index) => (
-            <Link key={index}
+            <Link
+              key={index}
               href={project.url}
-              ref={(el) => (cardRefs.current[index] = el)} 
-              style={{ zIndex: index + 1 }}               
-              className="block w-full"                   
+              ref={(el) => (cardRefs.current[index] = el)}
+              style={{ zIndex: index + 1 }}
+              className="block w-full"
             >
               <div
                 className="group w-full h-100 max-h-100 bg-secondary border border-neutral-200 rounded-4xl p-4 flex flex-col md:flex-row gap-8"
-              // style={{ zIndex: index + 1 }}
+                // style={{ zIndex: index + 1 }}
               >
                 <div className="relative w-full md:w-[48%] h-full rounded-3xl overflow-hidden shrink-0">
                   <Image
@@ -175,7 +170,9 @@ export default function Projects() {
                     <h3 className="text-xl font-medium text-foreground leading-snug group-hover:underline">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-foreground-2 mt-2">{project.role}</p>
+                    <p className="text-sm text-foreground-2 mt-2">
+                      {project.role}
+                    </p>
 
                     <div className="h-px bg-neutral-200 my-6" />
 
