@@ -299,7 +299,7 @@ export default function Certificates() {
                                     <button
                                         key={idx}
                                         onClick={() => setActiveIndex(idx)}
-                                        className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === activeIndex ? "bg-accent w-5" : "bg-white/70 hover:bg-white"
+                                        className={`shadow-md w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === activeIndex ? "bg-accent w-5" : "bg-white/70 hover:bg-white"
                                             }`}
                                     />
                                 ))}
