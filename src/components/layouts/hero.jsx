@@ -8,6 +8,7 @@ import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 import { LuMail } from "react-icons/lu";
 import { PiLinkedinLogo } from "react-icons/pi";
 import LogoLoop from "../elements/logoLoop";
+import { scrollToSection } from "@/lib/scroll";
 
 export default function Hero() {
     const line1 = useRef(null);
@@ -126,7 +127,11 @@ export default function Hero() {
                         </Link>
                     </div>
                     <div ref={buttons} className="relative z-3 flex justify-center gap-4 mt-8">
-                        <button className="group relative overflow-hidden inline-flex items-center gap-2.5 px-8 py-3 rounded-full bg-accent text-white font-medium text-lg shadow-[0_4px_14px_rgba(255,96,0,0.4)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(255,96,0,0.65)] hover:brightness-105 active:translate-y-0 active:scale-95 active:shadow-[0_4px_14px_rgba(255,96,0,0.4)]">
+                        <button
+                            type="button"
+                            className="group relative overflow-hidden inline-flex items-center gap-2.5 px-8 py-3 rounded-full bg-accent text-white font-medium text-lg shadow-[0_4px_14px_rgba(255,96,0,0.4)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(255,96,0,0.65)] hover:brightness-105 active:translate-y-0 active:scale-95 active:shadow-[0_4px_14px_rgba(255,96,0,0.4)] cursor-pointer"
+                            onClick={() => scrollToSection("contact")}
+                        >
                             <span className="pointer-events-none absolute inset-x-2 top-0.5 h-[50%] rounded-full bg-linear-to-b from-white/40 via-white/10 to-transparent transition-opacity duration-300 group-hover:opacity-0" />
                             <span className="relative z-10 flex items-center gap-2 tracking-wide drop-shadow-xs">
                                 Contact
@@ -151,7 +156,7 @@ export default function Hero() {
             <div ref={about} className="relative z-3 text-2xl font-medium w-[50%] py-28 mb-4">
                 <span>Give me a messy problem and I&apos;ll probably start connecting the dots.</span>
                 <span className="text-foreground-2"> I enjoy making complex things feel a little simpler, preferably with a good cup of coffee in hand.</span>
-             </div>
+            </div>
             <LogoLoop
                 logos={techLogos}
                 speed={80}

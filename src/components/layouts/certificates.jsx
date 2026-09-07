@@ -318,7 +318,7 @@ export default function Certificates() {
     );
 
     return (
-        <section ref={container} className="relative z-3 px-[14%] pb-40 mx-auto w-full overflow-auto">
+        <section ref={container} className="relative z-3 px-[14%] pt-14 pb-20 mx-auto w-full overflow-auto" id="certificate">
             <h2 className="text-xl font-medium text-foreground mb-10">Certificates</h2>
             <div
                 className="grid gap-3"

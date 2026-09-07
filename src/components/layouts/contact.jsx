@@ -7,7 +7,6 @@ import { LuMail } from "react-icons/lu";
 import { FiGithub } from "react-icons/fi";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { scrollToSection } from "@/lib/scroll";
 
 const socials = [
