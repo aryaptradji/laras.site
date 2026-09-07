@@ -2,10 +2,12 @@
 import { scrollToSection } from "@/lib/scroll";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
 import { LuMail, LuCheck, LuCopy } from "react-icons/lu";
 
 export default function Navbar() {
+    const pathname = usePathname();
     const container = useRef(null);
     const lastScrollY = useRef(0);
     const hidden = useRef(false);
@@ -96,7 +98,7 @@ export default function Navbar() {
             window.removeEventListener("scroll", onScroll);
             window.removeEventListener("showNavbar", onReveal);
         };
-    }, []);
+    }, [pathname]);
 
     return (
         <nav ref={container} className="fixed z-20 left-1/2 top-6 -translate-x-1/2 flex items-center justify-between gap-6 bg-secondary/40 border border-gray-200 backdrop-blur-sm rounded-full font-semibold px-4 py-2 text-sm">

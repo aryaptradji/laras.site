@@ -150,6 +150,7 @@ export default function Projects() {
               href={project.url}
               ref={(el) => (cardRefs.current[index] = el)}
               style={{ zIndex: index + 1 }}
+              onClick={() => window.dispatchEvent(new CustomEvent("showNavbar"))}
               className="block w-full"
             >
               <div className="group w-full h-100 max-h-100 bg-secondary border border-neutral-200 rounded-4xl p-4 flex flex-col md:flex-row gap-8">

@@ -5,6 +5,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 const sections = [
     { id: "tldr", label: "TL;DR" },
@@ -22,6 +23,9 @@ export default function ProjectDetail() {
     const bookmarks = useRef(null);
     const content = useRef(null);
     const container = useRef(null);
+    const title = useRef(null);
+    const subtitle = useRef(null);
+    const img = useRef(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -53,8 +57,13 @@ export default function ProjectDetail() {
             },
             pin: bookmarks.current,
             pinSpacing: false,
-            markers: true,
         });
+
+        gsap.timeline({ defaults: { ease: "power2.out" } })
+            .fromTo(bookmarks.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 })
+            .fromTo(title.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0)
+            .fromTo(subtitle.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0)
+            .fromTo(img.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, "<0.2");
     }, []);
 
     const scrollToSection = (id) => {
@@ -62,7 +71,7 @@ export default function ProjectDetail() {
         const el = document.getElementById(id);
 
         if (smoother && el) {
-            smoother.scrollTo(el, true, "top 15%");
+            smoother.scrollTo(el, true, "top 6%");
         } else if (el) {
             el.scrollIntoView({
                 behavior: "smooth",
@@ -81,6 +90,7 @@ export default function ProjectDetail() {
                 <aside ref={bookmarks} className="h-fit">
                     <Link
                         href="/"
+                        onClick={() => window.dispatchEvent(new CustomEvent("showNavbar"))}
                         className="flex items-center gap-2 text-foreground-2 hover:text-accent transition-colors duration-300 mb-4"
                     >
                         <FiArrowLeft size={18} />
@@ -97,11 +107,10 @@ export default function ProjectDetail() {
                                     onClick={() =>
                                         scrollToSection(section.id)
                                     }
-                                    className={`text-left py-2 pl-4 border-l-2 transition-all duration-300 cursor-pointer ${
-                                        isActive
-                                            ? "border-accent text-foreground font-medium"
-                                            : "border-neutral-200 text-foreground-2 hover:text-foreground hover:border-neutral-300"
-                                    }`}
+                                    className={`text-left py-2 pl-4 border-l-2 transition-all duration-300 cursor-pointer ${isActive
+                                        ? "border-accent text-foreground font-medium"
+                                        : "border-neutral-200 text-foreground-2 hover:text-foreground hover:border-neutral-300"
+                                        }`}
                                 >
                                     {section.label}
                                 </button>
@@ -113,21 +122,21 @@ export default function ProjectDetail() {
 
             {/* Content */}
             <main ref={content} className="max-w-3xl">
-                <h1 className="text-4xl font-semibold text-foreground mb-2">
+                <h1 ref={title} className="text-3xl font-semibold text-foreground mb-2">
                     Re-engineering Kemenkeu Learning Center
                 </h1>
 
-                <p className="text-lg text-foreground-2 mb-10">
+                <p ref={subtitle} className="text-lg text-foreground-2 mb-8">
                     System Analysis & UI/UX Case Study - Kementerian Keuangan
                 </p>
 
                 {/* Hero Image */}
-                <div className="rounded-2xl overflow-hidden mb-16 bg-neutral-100 h-96">
+                <div ref={img} className="rounded-2xl overflow-hidden mb-10 bg-neutral-100 h-96">
                     {/* Insert project cover image here */}
                 </div>
 
                 {/* TL;DR */}
-                <section id="tldr" className="mb-16">
+                <section id="tldr" className="mb-10">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">
                         TL;DR
                     </h2>
@@ -153,7 +162,7 @@ export default function ProjectDetail() {
                 </section>
 
                 {/* About KLC */}
-                <section id="about" className="mb-16">
+                <section id="about" className="mb-10">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">
                         About KLC
                     </h2>
@@ -181,7 +190,7 @@ export default function ProjectDetail() {
                 </section>
 
                 {/* Role & Team */}
-                <section id="role-team" className="mb-16">
+                <section id="role-team" className="mb-10">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">
                         Role & Team
                     </h2>
@@ -212,7 +221,7 @@ export default function ProjectDetail() {
                 </section>
 
                 {/* Requirements */}
-                <section id="requirements" className="mb-16">
+                <section id="requirements" className="mb-10">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">
                         1. Requirements
                     </h2>
@@ -256,7 +265,7 @@ export default function ProjectDetail() {
                 </section>
 
                 {/* Process Analysis */}
-                <section id="process-analysis" className="mb-16">
+                <section id="process-analysis" className="mb-10">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">
                         2. Process Analysis
                     </h2>
@@ -287,7 +296,7 @@ export default function ProjectDetail() {
                 </section>
 
                 {/* Initial Design */}
-                <section id="initial-design" className="mb-16">
+                <section id="initial-design" className="mb-10">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">
                         3. Initial Design
                     </h2>
@@ -315,7 +324,7 @@ export default function ProjectDetail() {
                 </section>
 
                 {/* Testing */}
-                <section id="testing" className="mb-16">
+                <section id="testing" className="mb-10">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">
                         4. Testing & Iterations
                     </h2>
@@ -364,7 +373,7 @@ export default function ProjectDetail() {
                 </section>
 
                 {/* Results */}
-                <section id="results" className="mb-16">
+                <section id="results" className="">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">
                         5. Results
                     </h2>
