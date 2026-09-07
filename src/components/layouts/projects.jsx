@@ -8,7 +8,7 @@ import { useRef } from "react";
 const projects = [
   {
     image: "/assets/projects/klc.jpg",
-    title: "Kemenkeu Learning Center (KLC) Re-engineering",
+    title: "Re-engineering Kemenkeu Learning Center",
     url: "/kemenkeu-learning-center",
     role: "System Analyst & UI/UX Designer",
     productName: "Kemenkeu Learning Center",
