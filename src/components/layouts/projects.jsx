@@ -8,7 +8,7 @@ import { useRef } from "react";
 const projects = [
   {
     image: "/assets/projects/klc.jpg",
-    title: "Kemenkeu Learning Center (KLC) Re-engineering",
+    title: "Re-engineering Kemenkeu Learning Center",
     url: "/kemenkeu-learning-center",
     role: "System Analyst & UI/UX Designer",
     productName: "Kemenkeu Learning Center",
@@ -150,13 +150,11 @@ export default function Projects() {
               href={project.url}
               ref={(el) => (cardRefs.current[index] = el)}
               style={{ zIndex: index + 1 }}
+              onClick={() => window.dispatchEvent(new CustomEvent("showNavbar"))}
               className="block w-full"
             >
-              <div
-                className="group w-full h-100 max-h-100 bg-secondary border border-neutral-200 rounded-4xl p-4 flex flex-col md:flex-row gap-8"
-              // style={{ zIndex: index + 1 }}
-              >
-                <div className="relative w-full md:w-[48%] h-full rounded-3xl overflow-hidden shrink-0 group">
+              <div className="group w-full h-100 max-h-100 bg-secondary border border-neutral-200 rounded-4xl p-4 flex flex-col md:flex-row gap-8">
+                <div className="relative w-full md:w-[48%] h-full rounded-3xl overflow-hidden shrink-0">
                   <Image
                     src={project.image}
                     alt={project.title}
