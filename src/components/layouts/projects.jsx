@@ -154,14 +154,14 @@ export default function Projects() {
             >
               <div
                 className="group w-full h-100 max-h-100 bg-secondary border border-neutral-200 rounded-4xl p-4 flex flex-col md:flex-row gap-8"
-                // style={{ zIndex: index + 1 }}
+              // style={{ zIndex: index + 1 }}
               >
-                <div className="relative w-full md:w-[48%] h-full rounded-3xl overflow-hidden shrink-0">
+                <div className="relative w-full md:w-[48%] h-full rounded-3xl overflow-hidden shrink-0 group">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                   />
                 </div>
 

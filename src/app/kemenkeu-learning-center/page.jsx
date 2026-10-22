@@ -53,7 +53,7 @@ export default function ProjectDetail() {
             },
             pin: bookmarks.current,
             pinSpacing: false,
-            markers: true,
+            // markers: true,
         });
     }, []);
 
@@ -117,7 +117,7 @@ export default function ProjectDetail() {
                     Re-engineering Kemenkeu Learning Center
                 </h1>
 
-                <p className="text-lg text-foreground-2 mb-10">
+                <p className="text-lg text-foreground mb-10">
                     System Analysis & UI/UX Case Study - Kementerian Keuangan
                 </p>
 
@@ -132,7 +132,7 @@ export default function ProjectDetail() {
                         TL;DR
                     </h2>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         Kemenkeu Learning Center (KLC) is an internal learning
                         platform used to support training and professional
                         development within the Ministry of Finance. During the
@@ -143,7 +143,7 @@ export default function ProjectDetail() {
                         requirements and interface designs.
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed">
+                    <p className="text-foreground leading-relaxed">
                         The project focused on improving the learning
                         experience through a more structured learning flow,
                         microlearning content, quizzes, personalization, and
@@ -158,21 +158,21 @@ export default function ProjectDetail() {
                         About KLC
                     </h2>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         Kemenkeu Learning Center (KLC) is a learning platform
                         developed to support learning, training, and knowledge
                         development for employees within the Ministry of
                         Finance.
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         As part of the re-engineering initiative, the existing
                         platform was reviewed to identify opportunities for
                         improving usability, learning flows, content
                         organization, and system capabilities.
                     </p>
 
-                    <div className="bg-neutral-100 rounded-xl p-6 text-sm text-foreground-2 leading-relaxed">
+                    <div className="bg-neutral-100 rounded-xl p-6 text-sm text-foreground leading-relaxed">
                         Note on Confidentiality: This case study presents the
                         project at a high level. Certain internal information,
                         system details, datasets, and organizational processes
@@ -186,16 +186,16 @@ export default function ProjectDetail() {
                         Role & Team
                     </h2>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         <strong>Role:</strong> System Analyst & UI/UX Designer
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         <strong>Project:</strong> Re-engineering Kemenkeu
                         Learning Center (KLC)
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         My responsibilities covered requirements analysis,
                         business process mapping, documentation, and interface
                         design. I worked on translating stakeholder and user
@@ -203,7 +203,7 @@ export default function ProjectDetail() {
                         solutions.
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed">
+                    <p className="text-foreground leading-relaxed">
                         The project involved collaboration with stakeholders,
                         business representatives, designers, and development
                         teams to align business requirements with technical
@@ -217,7 +217,7 @@ export default function ProjectDetail() {
                         1. Requirements
                     </h2>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         The project started with gathering and analyzing
                         requirements from users and stakeholders. User research
                         involved{" "}
@@ -226,13 +226,13 @@ export default function ProjectDetail() {
                         expectations toward the future platform.
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         The findings were translated into functional and
                         business requirements covering key areas of the
                         learning platform.
                     </p>
 
-                    <ul className="list-disc pl-6 text-foreground-2 leading-relaxed space-y-2">
+                    <ul className="list-disc pl-6 text-foreground leading-relaxed space-y-2">
                         <li>
                             Learning content and course management
                         </li>
@@ -261,13 +261,13 @@ export default function ProjectDetail() {
                         2. Process Analysis
                     </h2>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         After identifying the requirements, I analyzed the
                         existing business and system processes to understand
                         how users interacted with the current KLC platform.
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         Current-state processes were mapped to identify
                         bottlenecks, unnecessary steps, and opportunities for
                         improvement. The proposed processes were then
@@ -279,7 +279,7 @@ export default function ProjectDetail() {
                         {/* Insert BPMN / process flow image here */}
                     </div>
 
-                    <p className="text-foreground-2 leading-relaxed">
+                    <p className="text-foreground leading-relaxed">
                         The analysis helped establish a clearer relationship
                         between user activities, business rules, system
                         processes, and the required system functionality.
@@ -292,13 +292,13 @@ export default function ProjectDetail() {
                         3. Initial Design
                     </h2>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         Based on the requirements and process analysis, I
                         translated the proposed system flows into interface
                         designs and user journeys.
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed mb-6">
+                    <p className="text-foreground leading-relaxed mb-6">
                         The redesign explored a more structured learning
                         experience, including course discovery, learning
                         activities, microlearning, quizzes, and personalized
@@ -320,7 +320,7 @@ export default function ProjectDetail() {
                         4. Testing & Iterations
                     </h2>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         The proposed designs and system flows were reviewed
                         against the identified requirements and user needs.
                         Feedback from stakeholders was used to refine the
@@ -328,7 +328,7 @@ export default function ProjectDetail() {
                         components.
                     </p>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         Iterations focused on improving clarity, reducing
                         unnecessary steps, and ensuring that the proposed
                         interface supported the intended business processes.
@@ -342,7 +342,7 @@ export default function ProjectDetail() {
                         Key Design Considerations
                     </h3>
 
-                    <ul className="list-disc pl-6 text-foreground-2 leading-relaxed space-y-2">
+                    <ul className="list-disc pl-6 text-foreground leading-relaxed space-y-2">
                         <li>
                             Simplifying learning navigation and user flows
                         </li>
@@ -369,14 +369,14 @@ export default function ProjectDetail() {
                         5. Results
                     </h2>
 
-                    <p className="text-foreground-2 leading-relaxed mb-4">
+                    <p className="text-foreground leading-relaxed mb-4">
                         The analysis and design work resulted in a structured
                         set of system requirements, business process models,
                         user flows, and interface designs that could be used
                         as a reference for the re-engineering of KLC.
                     </p>
 
-                    <ul className="list-disc pl-6 text-foreground-2 leading-relaxed space-y-2 mb-6">
+                    <ul className="list-disc pl-6 text-foreground leading-relaxed space-y-2 mb-6">
                         <li>
                             Documented and structured functional requirements
                             for the proposed KLC system
@@ -401,7 +401,7 @@ export default function ProjectDetail() {
                         Key Takeaways
                     </h3>
 
-                    <p className="text-foreground-2 leading-relaxed">
+                    <p className="text-foreground leading-relaxed">
                         This project strengthened my experience in bridging
                         user needs, business processes, and system
                         requirements. It also allowed me to work across both
