@@ -61,7 +61,7 @@ export default function SmartCatFeeder() {
                 <div data-reveal>
                     <p className="mb-2 text-sm font-medium text-blur sm:text-base">Smart Cat Feeder · IoT Monitoring System</p>
                     <h1 className="text-4xl font-medium leading-[1.1] tracking-tighter sm:text-5xl lg:text-6xl">
-                        Under <span className="font-serif italic text-accent">development.</span>
+                        Coming <span className="font-serif italic text-accent">Soon.</span>
                     </h1>
                 </div>
 

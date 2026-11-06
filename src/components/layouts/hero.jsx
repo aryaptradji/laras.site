@@ -142,13 +142,13 @@ export default function Hero() {
                     </div>
                     <div ref={gallery} className="relative z-3 flex justify-center gap-6 mt-24">
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                            <Image src="/assets/heroimg4.jpeg" alt="" fill className="object-cover" priority />
+                            <Image src="/assets/heroimg4.jpeg" alt="" fill sizes="(min-width: 640px) calc(24vw - 2.4rem), calc(24vw - 0.48rem)" className="object-cover" priority />
                         </div>
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                            <Image src="/assets/hero-profile.png" alt="" fill className="object-cover object-[20%_35%]" priority />
+                            <Image src="/assets/hero-profile.png" alt="" fill sizes="(min-width: 640px) calc(24vw - 2.4rem), calc(24vw - 0.48rem)" className="object-cover object-[20%_35%]" priority />
                         </div>
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                            <Image src="/assets/heroimg3.jpeg" alt="" fill className="object-cover" priority />
+                            <Image src="/assets/heroimg3.jpeg" alt="" fill sizes="(min-width: 640px) calc(24vw - 2.4rem), calc(24vw - 0.48rem)" className="object-cover" priority />
                         </div>
                     </div>
                 </div>

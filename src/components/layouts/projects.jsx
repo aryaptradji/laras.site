@@ -159,6 +159,7 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(min-width: 768px) 32vw, 66vw"
                     className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                   />
                 </div>
@@ -183,6 +184,7 @@ export default function Projects() {
                               src={project.productInitial}
                               alt={project.productName}
                               fill
+                              sizes="28px"
                               className="object-cover"
                             />
                           </div>

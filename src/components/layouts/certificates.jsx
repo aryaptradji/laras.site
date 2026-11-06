@@ -276,6 +276,7 @@ export default function Certificates() {
                         src={images[activeIndex]}
                         alt={`${selected.title} - ${activeIndex + 1}`}
                         fill
+                        sizes="(min-width: 1200px) 692px, (min-width: 768px) calc(60vw - 1.8rem), calc(100vw - 3rem)"
                         className="object-contain p-6"
                     />
 
@@ -340,6 +341,7 @@ export default function Certificates() {
                             src={getThumbnail(cert)}
                             alt={`Certificate ${cert.id}`}
                             fill
+                            sizes={`${(72 / GRID_COLS) * cert.w}vw`}
                             className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                         />
                     </div>
