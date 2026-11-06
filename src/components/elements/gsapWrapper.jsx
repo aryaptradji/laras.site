@@ -18,7 +18,7 @@ export default function GSAPWrapper({ children }) {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            const smoother = ScrollSmoother.create({
+            ScrollSmoother.create({
                 wrapper: wrapperRef.current,
                 content: contentRef.current,
                 effects: false,
@@ -39,6 +39,14 @@ export default function GSAPWrapper({ children }) {
         } else {
             window.scrollTo(0, 0);
         }
+
+        // Shared layout triggers survive navigation; measure them again after
+        // the new page has rendered and the previous page's pins are removed.
+        const refreshFrame = requestAnimationFrame(() => {
+            ScrollTrigger.refresh();
+        });
+
+        return () => cancelAnimationFrame(refreshFrame);
     }, [pathname]);
 
     return (

@@ -80,7 +80,7 @@ export default function Contact() {
                     </Link>
                     <button
                         onClick={handleCopy}
-                        className="flex items-center gap-2 bg-white text-foreground font-medium px-8 py-4 rounded-full border border-neutral-200 hover:border-accent hover:text-accent transition-all duration-500"
+                        className="flex items-center gap-2 bg-white text-foreground font-medium px-8 py-4 rounded-full border border-neutral-200 hover:border-accent hover:text-accent transition-all duration-500 cursor-pointer"
                     >
                         {copied ? "Copied!" : "Copy Email"}
                         {copied ? <FiCheck size={18} /> : <FiCopy size={18} />}
