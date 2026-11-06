@@ -138,7 +138,7 @@ export default function Hero() {
                                 <FiArrowUpRight className="text-xl stroke-[2.5]" />
                             </span>
                         </button>
-                        <button className="bg-neutral-200 rounded-full font-medium text-lg text-foreground px-8 py-3 border-2 border-transparent hover:border-accent hover:text-accent transition-all duration-500">View Resume</button>
+                        <button className="bg-neutral-200 rounded-full font-medium text-lg text-foreground px-8 py-3 border-2 border-transparent hover:border-accent hover:text-accent transition-all duration-500 cursor-pointer">View Resume</button>
                     </div>
                     <div ref={gallery} className="relative z-3 flex justify-center gap-6 mt-24">
                         <div className="relative w-[24%] aspect-square rounded-2xl overflow-hidden shadow-2xl">
