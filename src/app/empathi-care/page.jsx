@@ -1,426 +1,99 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { FiArrowLeft } from "react-icons/fi";
+
+import { useRef } from "react";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import { FiArrowLeft, FiArrowUpRight } from "react-icons/fi";
+import { LuHeartHandshake, LuWrench } from "react-icons/lu";
 
-const sections = [
-    { id: "tldr", label: "TL;DR" },
-    { id: "about", label: "About KLC" },
-    { id: "role-team", label: "Role & Team" },
-    { id: "requirements", label: "1. Requirements" },
-    { id: "process-analysis", label: "2. Process Analysis" },
-    { id: "initial-design", label: "3. Initial Design" },
-    { id: "testing", label: "4. Testing & Iterations" },
-    { id: "results", label: "5. Results" },
-];
-
-export default function ProjectDetail() {
-    const [activeId, setActiveId] = useState(sections[0].id);
-    const bookmarks = useRef(null);
-    const content = useRef(null);
+export default function EmpathiCare() {
     const container = useRef(null);
-    const title = useRef(null);
-    const subtitle = useRef(null);
-    const img = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) setActiveId(entry.target.id);
-                });
-            },
-            { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
-        );
-
-        sections.forEach((s) => {
-            const el = document.getElementById(s.id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, []);
 
     useGSAP(() => {
-        ScrollTrigger.create({
-            trigger: content.current,
-            start: "top 12%",
-            end: () => {
-                const contentHeight = content.current.offsetHeight;
-                const bookmarkHeight = bookmarks.current.offsetHeight;
+        const media = gsap.matchMedia();
 
-                return `+=${contentHeight - bookmarkHeight}`;
-            },
-            pin: bookmarks.current,
-            pinSpacing: false,
+        media.add("(prefers-reduced-motion: no-preference)", () => {
+            gsap.fromTo("[data-reveal]",
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.7,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                }
+            );
         });
 
-        gsap.timeline({ defaults: { ease: "power2.out" } })
-            .fromTo(bookmarks.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 })
-            .fromTo(title.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0)
-            .fromTo(subtitle.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0)
-            .fromTo(img.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, "<0.2");
-    }, []);
-
-    const scrollToSection = (id) => {
-        const smoother = ScrollSmoother.get();
-        const el = document.getElementById(id);
-
-        if (smoother && el) {
-            smoother.scrollTo(el, true, "top 6%");
-        } else if (el) {
-            el.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            });
-        }
-    };
+        return () => media.revert();
+    }, { scope: container });
 
     return (
-        <div
-            ref={container}
-            className="flex items-start gap-10 px-[14%] pt-[12%]"
-        >
-            {/* Bookmarks */}
-            <div className="w-56">
-                <aside ref={bookmarks} className="h-fit">
+        <main ref={container} className="relative isolate flex min-h-dvh flex-col justify-center px-6 pt-24 pb-12 sm:px-12 [&+#contact]:pt-6">
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+                <div className="absolute inset-0 mx-auto flex max-w-5xl justify-between px-6 sm:px-12">
+                    {[0, 1, 2, 3].map((line) => (
+                        <div key={line} className="w-px bg-linear-to-b from-neutral-200/80 via-neutral-200/40 to-transparent" />
+                    ))}
+                </div>
+                <div className="absolute top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/8 blur-3xl sm:h-96 sm:w-96" />
+            </div>
+
+            <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+                <p data-reveal className="inline-flex items-center gap-2.5 rounded-full border border-neutral-200 bg-secondary/80 px-4 py-2 font-mono text-xs text-blur">
+                    <span aria-hidden="true" className="relative block size-2.5 aspect-square shrink-0">
+                        <span className="absolute inset-0 animate-ping rounded-full bg-accent opacity-75 motion-reduce:animate-none" />
+                        <span className="absolute inset-0 rounded-full bg-accent" />
+                    </span>
+                    A LITTLE WORK IN PROGRESS
+                </p>
+
+                <div data-reveal aria-hidden="true" className="relative my-[clamp(0.75rem,2.5svh,1.5rem)]">
+                    <div className="flex size-[clamp(4rem,12svh,6rem)] -rotate-6 items-center justify-center rounded-3xl border border-neutral-200 bg-secondary shadow-[0_12px_32px_rgba(46,65,80,0.06)]">
+                        <LuHeartHandshake className="size-10 text-foreground sm:size-12" strokeWidth={1.25} />
+                    </div>
+                    <div className="absolute -right-3 -bottom-2 flex size-10 rotate-12 items-center justify-center rounded-2xl border-4 border-primary bg-accent text-white">
+                        <LuWrench size={20} strokeWidth={1.5} />
+                    </div>
+                </div>
+
+                <div data-reveal>
+                    <p className="mb-2 text-sm font-medium text-blur sm:text-base">EmpathiCare · Mental Health Care Platform</p>
+                    <h1 className="text-4xl font-medium leading-[1.1] tracking-tighter sm:text-5xl lg:text-6xl">
+                        Under <span className="font-serif italic text-accent">development.</span>
+                    </h1>
+                </div>
+
+                <p data-reveal className="mt-[clamp(0.75rem,2svh,1.25rem)] max-w-lg text-sm leading-relaxed text-blur sm:text-base">
+                    I&apos;m putting together the story of testing a mental
+                    health care platform, with care in every detail.
+                    The full case study will be here soon.
+                </p>
+
+                <div data-reveal className="mt-[clamp(1rem,3svh,1.5rem)] flex flex-wrap items-center justify-center gap-3 text-sm sm:text-base">
                     <Link
                         href="/"
                         onClick={() => window.dispatchEvent(new CustomEvent("showNavbar"))}
-                        className="flex items-center gap-2 text-foreground-2 hover:text-accent transition-colors duration-300 mb-4"
+                        className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-accent px-5 py-3 font-medium text-white shadow-[0_4px_14px_rgba(255,96,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(255,96,0,0.35)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent motion-reduce:transform-none motion-reduce:transition-none sm:px-7"
                     >
-                        <FiArrowLeft size={18} />
-                        Back
+                        <span aria-hidden="true" className="pointer-events-none absolute inset-x-2 top-0.5 h-1/2 rounded-full bg-linear-to-b from-white/40 via-white/10 to-transparent" />
+                        <FiArrowLeft aria-hidden="true" className="relative" />
+                        <span className="relative">Back to home</span>
                     </Link>
-
-                    <nav className="flex flex-col">
-                        {sections.map((section) => {
-                            const isActive = activeId === section.id;
-
-                            return (
-                                <button
-                                    key={section.id}
-                                    onClick={() =>
-                                        scrollToSection(section.id)
-                                    }
-                                    className={`text-left py-2 pl-4 border-l-2 transition-all duration-300 cursor-pointer ${isActive
-                                        ? "border-accent text-foreground font-medium"
-                                        : "border-neutral-200 text-foreground-2 hover:text-foreground hover:border-neutral-300"
-                                        }`}
-                                >
-                                    {section.label}
-                                </button>
-                            );
-                        })}
-                    </nav>
-                </aside>
-            </div>
-
-            {/* Content */}
-            <main ref={content} className="max-w-3xl">
-                <h1 ref={title} className="text-3xl font-semibold text-foreground mb-2">
-                    Re-engineering Kemenkeu Learning Center
-                </h1>
-
-                <p ref={subtitle} className="text-lg text-foreground-2 mb-8">
-                    System Analysis & UI/UX Case Study - Kementerian Keuangan
-                </p>
-
-                {/* Hero Image */}
-                <div ref={img} className="rounded-2xl overflow-hidden mb-10 bg-neutral-100 h-96">
-                    {/* Insert project cover image here */}
+                    <Link
+                        href="mailto:larasatimaharanii@gmail.com"
+                        className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-secondary px-5 py-3 font-medium transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent motion-reduce:transition-none sm:px-7"
+                    >
+                        Let&apos;s talk
+                        <FiArrowUpRight aria-hidden="true" />
+                    </Link>
                 </div>
 
-                {/* TL;DR */}
-                <section id="tldr" className="mb-10">
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">
-                        TL;DR
-                    </h2>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        Kemenkeu Learning Center (KLC) is an internal learning
-                        platform used to support training and professional
-                        development within the Ministry of Finance. During the
-                        re-engineering project, I contributed to analyzing the
-                        existing system, identifying user and business
-                        requirements, mapping current and proposed processes,
-                        and translating the findings into structured system
-                        requirements and interface designs.
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed">
-                        The project focused on improving the learning
-                        experience through a more structured learning flow,
-                        microlearning content, quizzes, personalization, and
-                        integration with existing internal systems such as
-                        HRIS, SSO, and SharePoint.
-                    </p>
-                </section>
-
-                {/* About KLC */}
-                <section id="about" className="mb-10">
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">
-                        About KLC
-                    </h2>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        Kemenkeu Learning Center (KLC) is a learning platform
-                        developed to support learning, training, and knowledge
-                        development for employees within the Ministry of
-                        Finance.
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        As part of the re-engineering initiative, the existing
-                        platform was reviewed to identify opportunities for
-                        improving usability, learning flows, content
-                        organization, and system capabilities.
-                    </p>
-
-                    <div className="bg-neutral-100 rounded-xl p-6 text-sm text-foreground-2 leading-relaxed">
-                        Note on Confidentiality: This case study presents the
-                        project at a high level. Certain internal information,
-                        system details, datasets, and organizational processes
-                        have been simplified or omitted for confidentiality.
-                    </div>
-                </section>
-
-                {/* Role & Team */}
-                <section id="role-team" className="mb-10">
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">
-                        Role & Team
-                    </h2>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        <strong>Role:</strong> System Analyst & UI/UX Designer
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        <strong>Project:</strong> Re-engineering Kemenkeu
-                        Learning Center (KLC)
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        My responsibilities covered requirements analysis,
-                        business process mapping, documentation, and interface
-                        design. I worked on translating stakeholder and user
-                        needs into structured requirements and proposed system
-                        solutions.
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed">
-                        The project involved collaboration with stakeholders,
-                        business representatives, designers, and development
-                        teams to align business requirements with technical
-                        implementation.
-                    </p>
-                </section>
-
-                {/* Requirements */}
-                <section id="requirements" className="mb-10">
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">
-                        1. Requirements
-                    </h2>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        The project started with gathering and analyzing
-                        requirements from users and stakeholders. User research
-                        involved{" "}
-                        <strong>1,709 respondents</strong>, providing insights
-                        into existing learning experiences, pain points, and
-                        expectations toward the future platform.
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        The findings were translated into functional and
-                        business requirements covering key areas of the
-                        learning platform.
-                    </p>
-
-                    <ul className="list-disc pl-6 text-foreground-2 leading-relaxed space-y-2">
-                        <li>
-                            Learning content and course management
-                        </li>
-                        <li>
-                            Microlearning content with shorter learning
-                            sessions
-                        </li>
-                        <li>
-                            Quiz and assessment functionality
-                        </li>
-                        <li>
-                            Personalized learning experience
-                        </li>
-                        <li>
-                            User authentication and SSO integration
-                        </li>
-                        <li>
-                            Integration with HRIS and SharePoint
-                        </li>
-                    </ul>
-                </section>
-
-                {/* Process Analysis */}
-                <section id="process-analysis" className="mb-10">
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">
-                        2. Process Analysis
-                    </h2>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        After identifying the requirements, I analyzed the
-                        existing business and system processes to understand
-                        how users interacted with the current KLC platform.
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        Current-state processes were mapped to identify
-                        bottlenecks, unnecessary steps, and opportunities for
-                        improvement. The proposed processes were then
-                        structured into clearer user flows and system
-                        interactions.
-                    </p>
-
-                    <div className="rounded-xl overflow-hidden bg-neutral-100 h-80 mb-6">
-                        {/* Insert BPMN / process flow image here */}
-                    </div>
-
-                    <p className="text-foreground-2 leading-relaxed">
-                        The analysis helped establish a clearer relationship
-                        between user activities, business rules, system
-                        processes, and the required system functionality.
-                    </p>
-                </section>
-
-                {/* Initial Design */}
-                <section id="initial-design" className="mb-10">
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">
-                        3. Initial Design
-                    </h2>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        Based on the requirements and process analysis, I
-                        translated the proposed system flows into interface
-                        designs and user journeys.
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed mb-6">
-                        The redesign explored a more structured learning
-                        experience, including course discovery, learning
-                        activities, microlearning, quizzes, and personalized
-                        learning content.
-                    </p>
-
-                    <div className="rounded-xl overflow-hidden bg-neutral-100 h-80 mb-6">
-                        {/* Insert UI/UX design image here */}
-                    </div>
-
-                    <div className="rounded-xl overflow-hidden bg-neutral-100 h-80">
-                        {/* Insert additional UI/UX image here */}
-                    </div>
-                </section>
-
-                {/* Testing */}
-                <section id="testing" className="mb-10">
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">
-                        4. Testing & Iterations
-                    </h2>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        The proposed designs and system flows were reviewed
-                        against the identified requirements and user needs.
-                        Feedback from stakeholders was used to refine the
-                        information architecture, user flows, and interface
-                        components.
-                    </p>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        Iterations focused on improving clarity, reducing
-                        unnecessary steps, and ensuring that the proposed
-                        interface supported the intended business processes.
-                    </p>
-
-                    <div className="rounded-xl overflow-hidden bg-neutral-100 h-80 mb-6">
-                        {/* Insert iteration / feedback image here */}
-                    </div>
-
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
-                        Key Design Considerations
-                    </h3>
-
-                    <ul className="list-disc pl-6 text-foreground-2 leading-relaxed space-y-2">
-                        <li>
-                            Simplifying learning navigation and user flows
-                        </li>
-                        <li>
-                            Making learning progress easier to understand
-                        </li>
-                        <li>
-                            Structuring microlearning content into shorter
-                            learning experiences
-                        </li>
-                        <li>
-                            Improving quiz and assessment interactions
-                        </li>
-                        <li>
-                            Aligning UI components with the proposed system
-                            requirements
-                        </li>
-                    </ul>
-                </section>
-
-                {/* Results */}
-                <section id="results" className="">
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">
-                        5. Results
-                    </h2>
-
-                    <p className="text-foreground-2 leading-relaxed mb-4">
-                        The analysis and design work resulted in a structured
-                        set of system requirements, business process models,
-                        user flows, and interface designs that could be used
-                        as a reference for the re-engineering of KLC.
-                    </p>
-
-                    <ul className="list-disc pl-6 text-foreground-2 leading-relaxed space-y-2 mb-6">
-                        <li>
-                            Documented and structured functional requirements
-                            for the proposed KLC system
-                        </li>
-                        <li>
-                            Mapped current and proposed business processes
-                        </li>
-                        <li>
-                            Translated user research findings into system and
-                            interface requirements
-                        </li>
-                        <li>
-                            Designed proposed user flows and UI/UX solutions
-                        </li>
-                        <li>
-                            Established requirements for integrations with
-                            HRIS, SSO, and SharePoint
-                        </li>
-                    </ul>
-
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
-                        Key Takeaways
-                    </h3>
-
-                    <p className="text-foreground-2 leading-relaxed">
-                        This project strengthened my experience in bridging
-                        user needs, business processes, and system
-                        requirements. It also allowed me to work across both
-                        analysis and UI/UX activities, ensuring that proposed
-                        solutions were not only visually usable but also
-                        aligned with the underlying business and system
-                        processes.
-                    </p>
-                </section>
-            </main>
-        </div>
+                <p data-reveal className="mt-[clamp(1rem,3svh,1.5rem)] font-serif text-xl italic text-blur">
+                    A little patience, a lot of care.
+                </p>
+            </div>
+        </main>
     );
 }
