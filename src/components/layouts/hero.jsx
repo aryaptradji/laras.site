@@ -77,15 +77,46 @@ const HIGHLIGHTS = [
 const SKILL_GROUPS = [
     {
         title: "QA Skills",
-        items: ["Manual Testing", "Functional Testing", "Integration Testing", "Black Box Testing", "UAT", "Test Case Design", "Test Plan"],
+        items: [
+            "Manual Testing",
+            "Functional Testing",
+            "Regression Testing",
+            "Exploratory Testing",
+            "Black Box Testing",
+            "API Testing",
+            "Test Case Design",
+            "Test Plan",
+            "UAT",
+        ],
     },
     {
         title: "Automation & Tools",
-        items: ["Katalon Studio", "Postman", "Cucumber", "REST Assured", "Serenity BDD", "Appium", "Git", "Trello"],
+        items: [
+            "Selenium WebDriver",
+            "Postman",
+            "REST Assured",
+            "Serenity BDD",
+            "Cucumber",
+            "Appium",
+            "JMeter",
+            "Git",
+            "JIRA",
+            "Trello",
+        ],
     },
     {
-        title: "Analysis & Dev",
-        items: ["Requirements Analysis", "BPMN", "Use Case", "Laravel", "PHP", "Python", "JavaScript", "MySQL", "PostgreSQL"],
+        title: "Programming / Analysis",
+        items: [
+            "Java",
+            "JavaScript",
+            "Python",
+            "SQL",
+            "Laravel",
+            "PHP",
+            "Requirements Analysis",
+            "BPMN",
+            "Use Case",
+        ],
     },
 ];
 
