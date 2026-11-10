@@ -134,7 +134,7 @@ const EXPERTISE = [
     {
         icon: LuZap,
         title: "Test Automation",
-        points: ["Web UI automation with Katalon Studio", "BDD with Cucumber and Serenity BDD", "Mobile automation with Appium"],
+        points: ["Web UI automation with Selenium WebDriver", "BDD with Cucumber and Serenity BDD", "Mobile automation with Appium"],
     },
     {
         icon: LuClipboardCheck,
