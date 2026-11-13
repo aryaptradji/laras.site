@@ -5,19 +5,17 @@ import { FiArrowDownRight } from "react-icons/fi";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
+
 const journeys = [
     {
         period: "Dec 2025 - Jun 2026",
-        company: "Kementerian Keuangan",
-        role: "System Analyst & UI/UX Intern",
+        company: "Kementerian Keuangan - Sekretariat BPPK",
+        role: "System Analyst & UI/UX Designer Intern",
         highlights: [
-            "Analyzed business and user requirements for the re-engineering of Kemenkeu Learning Center (KLC), producing BRD, business process models, wireframes, and UI/UX designs.",
-            "Defined system features and user flows for KLC based on requirement analysis and user needs.",
-            "Contributed to the development of an educational game for Be A Champion (BAC) as an interactive learning medium for Kemenkeu Learning Festival.",
-            "Designed monthly learning analytics reports and BPPK Dalam Angka dashboards to present learning data and statistics in a more informative and interactive format.",
-            "Supported the preparation and execution of interactive mini games for Kemenkeu Learning Festival 2026, including visual concepts, game briefings, property coordination, and event ambience.",
-            "Prepared the Business Requirement Document (BRD) for Room Management System (RMS) V2, defining business requirements, system needs, and process flows.",
-            "Developed a user manual for KLC Office to support system usage and standardize system documentation."
+            "Analyzed user requirements, business processes, and feedback from 1,709 respondents for the re-engineering of Kemenkeu Learning Center (KLC) and Room Management System (RMS) V2, and documented findings in BRD and BPMN.",
+            "Designed KLC user flows, wireframes, and interactive Figma prototypes, including a new interactive quiz feature.",
+            "Designed 10+ dashboard pages for BPPK Dalam Angka using Canva.",
+            "Led on-site execution of Be a Champion (BAC) and Kemenkeu Learning Festival (KLF) 2026 mini games, coordinating 5+ performers and game MCs.",
         ],
     },
     {
@@ -25,9 +23,9 @@ const journeys = [
         company: "PT Levi Strauss Indonesia",
         role: "IT Business Analyst Intern",
         highlights: [
-            "Developed interactive Power BI KPI dashboards and sell-through reports supporting sales performance analysis across five Southeast Asian markets (Indonesia, Malaysia, Singapore, Thailand, and the Philippines). ",
-            "Managed, validated, and analyzed 30,000+ sales records by querying SQL databases and integrating SAP and internal data sources into Power BI, enabling automated reporting and actionable insights into revenue growth, sales trends, and product performance.",
-            "Designed Figma dashboard prototypes, translating business requirements into interactive reporting solutions.",
+            "Developed interactive Power BI KPI dashboards and sell-through reports supporting sales performance analysis across 5 Southeast Asian markets: Indonesia, Malaysia, Singapore, Thailand, and the Philippines.",
+            "Validated and analyzed 30,000+ sales records from SQL, SAP, and internal sources for automated reporting on revenue growth, sales trends, and product performance.",
+            "Built data models using SQL, DAX, and Power Query, and designed 25+ dashboard templates in Figma based on business requirements.",
         ],
     },
     {
@@ -35,8 +33,9 @@ const journeys = [
         company: "Bank DKI",
         role: "Back-End Developer Intern",
         highlights: [
-            "Collaborated with developers to support REST API integration and validated 100 API test cases using Postman for the JakLoan application.",
-            "Prepared Technical System Documentation (TSD) covering API specifications and system workflows.",
+            "Developed backend features for the JakLoan application using Spring Boot and PostgreSQL, integrating application logic with the database through REST APIs.",
+            "Executed 100+ API test cases using Postman, covering request and response validation, status codes, and error handling, and reported functional issues to the development team.",
+            "Authored Technical System Documentation (TSD) covering API specifications and system workflows as a reference for the development team.",
         ],
     },
     {
