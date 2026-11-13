@@ -64,12 +64,21 @@ export default function Contact() {
                 className="w-full relative overflow-hidden rounded-[2.5rem] flex flex-col items-center text-center py-14 px-6"
                 style={{
                     background:
-                        "linear-gradient(180deg, rgb(246, 246, 246) 0%, rgba(252, 191, 145, 0.49) 100%)",
+                        "linear-gradient(180deg, #FFFFFF 0%, rgba(28, 63, 143, 0.25) 100%)",
                 }}
             >
-                <h2 ref={title} className="text-4xl font-medium text-foreground max-w-3xl leading-tight tracking-tighter">
-                    Have a project, opportunity, or idea in mind? Let&apos;s connect and see what we can build together.
+
+                <h2
+                    ref={title}
+                    className="text-4xl font-medium text-foreground max-w-3xl leading-tight tracking-tighter">
+                    From finding issues to building confidence.
+                    Let's catch the bugs before your users do.
                 </h2>
+
+                <p className="mt-6 text-xl text-[#2e4150]">
+                    Looking for someone who puts quality first? Hit me up!
+                </p>
+
                 <div ref={buttons} className="flex flex-wrap justify-center gap-4 mt-10 text-xl font-medium">
                     <Link href="mailto:larasatimaharanii@gmail.com" className="group relative overflow-hidden inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-accent text-white font-medium shadow-[0_4px_14px_rgba(255,96,0,0.4)] transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(255,96,0,0.65)] hover:brightness-105 active:translate-y-0 active:scale-95 active:shadow-[0_4px_14px_rgba(255,96,0,0.4)]">
                         <span className="pointer-events-none absolute inset-x-2 top-0.5 h-[50%] rounded-full bg-linear-to-b from-white/40 via-white/10 to-transparent transition-opacity duration-300 group-hover:opacity-0" />
