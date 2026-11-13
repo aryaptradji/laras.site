@@ -23,7 +23,7 @@ const certificates = [
         h: 1,
         title: "Metamorphoria",
         role: "Peserta",
-        description: "Deskripsi singkat sertifikat ini.",
+        description: "Sertifikat Master of Ceremony dalam acara Metamorphoria 2023 (pengukuhan mahasiswa TIK) di Politeknik Negeri Jakarta.",
     },
     {
         id: 3,
