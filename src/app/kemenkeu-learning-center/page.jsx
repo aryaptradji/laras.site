@@ -121,7 +121,7 @@ const NON_FUNCTIONAL =
 const DESIGN_CHANGES = [
     {
         title: "Login Screen",
-        before: { src: "/assets/klc/loginKLc.png", alt: "Login screen before the redesign" },
+        before: { src: "/assets/klc/loginKlc.png", alt: "Login screen before the redesign" },
         after: { src: "/assets/klc/loginEksternal.png", alt: "Login screen after the redesign" },
         points: [
             "Redesigned the login interface with a cleaner layout and fewer visual distractions to simplify the sign-in experience.",
@@ -246,14 +246,12 @@ const DESIGN_CHANGES = [
     },
 ];
 
-
 const RESULTS = [
     "BRD v1.0 documenting 96 core functional requirements, non-functional requirements, and business rules within the main KLC scope.",
     "Developed internal BPMN models, use case diagrams, and flowcharts to document current and proposed business processes.",
     "User flows, wireframes, and interactive Figma prototypes based on user research and stakeholder feedback.",
     "A three-phase roadmap focused on infrastructure stability, UI modernization, personalization, and long-term user engagement.",
 ];
-
 
 function ImageLightbox({ src, alt, onClose }) {
     const [scale, setScale] = useState(1);
