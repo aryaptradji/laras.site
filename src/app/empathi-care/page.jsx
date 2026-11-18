@@ -223,7 +223,7 @@ const TEST_CASES = [
 ];
 
 const SUMMARY = {
-    project: "EmpathiCare Web - All Modules",
+    project: "EmpathiCare - All Modules",
     total: "286",
     passed: "277",
     failed: "9",
