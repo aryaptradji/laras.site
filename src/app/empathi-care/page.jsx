@@ -39,7 +39,7 @@ const LINKS = [
         label: "Project README",
         href: "https://github.com/Capstone-Mental-Health-Care-Group-6/.github/tree/main/profile/README.md",
     },
-    // [TODO] add public links to your test case sheet, bug reports, and Postman collection
+
 ];
 
 const RESPONSIBILITIES = [
@@ -222,45 +222,142 @@ const TEST_CASES = [
     },
 ];
 
-const SUMMARY = {
-    project: "EmpathiCare - All Modules",
-    total: "286",
-    passed: "277",
-    failed: "9",
-    blocked: "0",
-    // note: "Manual execution: 277 passed, 9 failed, and none left unexecuted (about 96% pass rate). Automation with Katalon Studio: 106 cases passed, none failed, and 180 were not executed. Failed cases include the Download Now buttons on the user landing page (TC_WEB-004, 005, 006).",
+
+const TEST_RESULTS = [
+    {
+        platform: "Web Application",
+        total: 286,
+        passed: 277,
+        failed: 5,
+        description: "Functional testing of the web application, including authentication, user management, and transactions.",
+    },
+    {
+        platform: "Mobile Application",
+        total: 194,
+        passed: 183,
+        failed: 4,
+        description: "Functional testing of the mobile application, including onboarding, counseling, and payments.",
+    },
+    {
+        platform: "RESTful API",
+        total: 132,
+        passed: 132,
+        failed: 0,
+        description: "Endpoint testing to validate API functionality and expected responses.",
+    },
+];
+
+const TEST_TOTALS = {
+    total: TEST_RESULTS.reduce((sum, item) => sum + item.total, 0),
+    passed: TEST_RESULTS.reduce((sum, item) => sum + item.passed, 0),
+    defects: 9,
 };
 
 const BUGS = [
-    { id: "BUG_001-WEB", platform: "Web", title: "[Academic Data] Unlimited data can be added", priority: "Medium", expected: "Only 5 data entries can be added.", actual: "User can add unlimited data entries." },
-    { id: "BUG_002-WEB", platform: "Web", title: "[Work Experience] Add data button has no limit", priority: "Medium", expected: "Only 5 data entries can be added.", actual: "User can add unlimited data entries." },
-    { id: "BUG_003-WEB", platform: "Web", title: "[Notification] Notification detail cannot be opened", priority: "Medium", expected: "User can see the notification detail.", actual: "User cannot see the notification detail." },
-    { id: "BUG_004-WEB", platform: "Web", title: "[Doctor Balance] Withdrawal works with empty data", priority: "Medium", expected: "Withdrawal is possible only when the data is filled in.", actual: "Withdrawal can be submitted even when the data is empty." },
-    { id: "BUG_005-WEB", platform: "Web", title: "[Withdrawal Notification] X button cannot be clicked", priority: "Medium", expected: "User can click X and the notification closes.", actual: "User cannot click the X button." },
-    { id: "BUG_001-MOBILE", platform: "Mobile", title: "[Login & Sign Up] App can be entered without an account", priority: "High", expected: "User cannot enter the app before logging in.", actual: "User can enter the app without having an account." },
-    { id: "BUG_002-MOBILE", platform: "Mobile", title: "[Payment] GoPay payment form is empty", priority: "Medium", expected: "The GoPay payment form is displayed.", actual: "The GoPay payment form is empty." },
-    { id: "BUG_003-MOBILE", platform: "Mobile", title: "[Counseling] Counseling data is empty", priority: "Medium", expected: "User can use the counseling feature.", actual: "Counseling data is empty, so the feature cannot be used." },
-    { id: "BUG_004-MOBILE", platform: "Mobile", title: "[Notification] Notification detail cannot be opened", priority: "Low", expected: "User can see the notification detail.", actual: "User cannot see the notification detail." },
+    {
+        id: "BUG_001-WEB",
+        platform: "Web",
+        title: "[Academic Data] Unlimited Data Entries Allowed",
+        priority: "Medium",
+        expected: "Only 5 data entries can be added.",
+        actual: "User can add unlimited data entries.",
+    },
+    {
+        id: "BUG_002-WEB",
+        platform: "Web",
+        title: "[Work Experience] Data Entry Limit Not Enforced",
+        priority: "Medium",
+        expected: "Only 5 data entries can be added.",
+        actual: "User can add unlimited data entries.",
+    },
+    {
+        id: "BUG_003-WEB",
+        platform: "Web",
+        title: "[Notification] Notification Detail Cannot Be Opened",
+        priority: "Medium",
+        expected: "User can view the notification details.",
+        actual: "User cannot open the notification details.",
+    },
+    {
+        id: "BUG_004-WEB",
+        platform: "Web",
+        title: "[Balance Withdrawal] Withdrawal Processed with Zero Balance and Empty Fields",
+        priority: "High",
+        expected:
+            "The system rejects the withdrawal request and displays validation messages for empty required fields and insufficient balance.",
+        actual:
+            'The system displays "Selamat Pencairan Dana Telah Diproses" despite zero balance and empty withdrawal details.',
+    },
+    {
+        id: "BUG_005-WEB",
+        platform: "Web",
+        title: "[Withdrawal Notification] Close Button Not Working",
+        priority: "Medium",
+        expected: "Clicking the X button closes the notification.",
+        actual: "The notification cannot be closed using the X button.",
+    },
+    {
+        id: "BUG_001-MOBILE",
+        platform: "Mobile",
+        title: "[Authentication] App Accessible Without Login",
+        priority: "High",
+        expected: "Users must log in before accessing the application.",
+        actual: "Users can access the application without an account.",
+    },
+    {
+        id: "BUG_002-MOBILE",
+        platform: "Mobile",
+        title: "[Payment] GoPay Payment Form Not Displayed",
+        priority: "Medium",
+        expected: "The GoPay payment form is displayed.",
+        actual: "The GoPay payment form appears empty.",
+    },
+    {
+        id: "BUG_003-MOBILE",
+        platform: "Mobile",
+        title: "[Counseling] Counseling Data Not Displayed",
+        priority: "Medium",
+        expected: "Users can access and use the counseling feature.",
+        actual: "Counseling data is empty, preventing users from using the feature.",
+    },
+    {
+        id: "BUG_004-MOBILE",
+        platform: "Mobile",
+        title: "[Notification] Notification Detail Cannot Be Opened",
+        priority: "Low",
+        expected: "Users can view the notification details.",
+        actual: "Users cannot open the notification details.",
+    },
 ];
 
 const BUG = {
-    id: "BUG_003-MOBILE",
-    title: "[Counseling] Empty Data Counseling",
-    testCaseId: "-",
-    reportedDate: "18/12/2023",
-    priority: "Medium",
-    description: "Empty Data Counseling",
-    expected: "Can Use Feature Counseling",
-    actual: "Empty Data Counseling, Can't Use",
+    id: "BUG_004-WEB",
+    testCaseId: "TC_WEB-059",
+    title: "Withdrawal request is processed despite zero balance and empty required fields.",
+    severity: "High",
+    priority: "High",
+    steps: [
+        "Log in as a doctor.",
+        "Open Pencairan Saldo page.",
+        "Leave the required withdrawal fields empty with a balance of Rp0.",
+        "Click Cairkan Dana button.",
+    ],
+    expected:
+        "The system rejects the withdrawal request and displays validation messages for empty required fields and insufficient balance.",
+    actual:
+        'The system displays "Selamat Pencairan Dana Telah Diproses" despite zero balance and empty withdrawal details.',
+    notes:
+        "Validate required fields and available balance before allowing withdrawal processing.",
+    status: "New",
     evidenceHref:
-        "https://drive.google.com/file/d/1MBMVeNxFoIkmkXz0i7HoFISiwlrg06Xx/view?usp=drive_link",
+        "https://drive.google.com/file/d/1EhpF_eDlMI8qe4R4ZRYPAkRNX05weebT/view?usp=drive_link",
 };
 
 const IMPROVEMENT = {
     initiative:
-        "-",
+        "Standardized test scenarios, test cases, and defect reporting across web, mobile, and API testing. Used GitHub Projects to track testing progress and reported defects with clear reproduction steps, expected and actual results, and supporting evidence.",
     impact:
-        "-",
+        "Improved test documentation consistency and made defects easier for developers to reproduce and investigate. Supported collaboration between QA and development teams, with 612 test cases executed and 9 defects identified and documented before release.",
 };
 
 const STAR = {
@@ -301,12 +398,22 @@ function Field({ label, children }) {
     );
 }
 
+
 export default function ProjectDetail() {
     const [activeId, setActiveId] = useState(sections[0].id);
+
+    // Bug filter
+    const [bugFilter, setBugFilter] = useState("All");
+
+    const filteredBugs = BUGS.filter(
+        (bug) => bugFilter === "All" || bug.platform === bugFilter
+    );
+
     const bookmarks = useRef(null);
     const content = useRef(null);
     const title = useRef(null);
     const subtitle = useRef(null);
+
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -600,24 +707,6 @@ export default function ProjectDetail() {
                         </table>
                     </div>
 
-                    <h3 className="text-foreground font-medium mb-3">Test case coverage (612 total)</h3>
-                    <div className="space-y-3 mb-6">
-                        {COVERAGE.map((c) => (
-                            <div key={c.label}>
-                                <div className="flex justify-between text-sm text-[#2e4150] mb-1">
-                                    <span>{c.label}</span>
-                                    <span>{c.value}</span>
-                                </div>
-                                <div className="h-2 rounded-full bg-neutral-200 overflow-hidden">
-                                    <div
-                                        className="h-full rounded-full bg-accent"
-                                        style={{ width: `${(c.value / maxCoverage) * 100}%` }}
-                                    />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
                     <BulletList items={STRATEGY_POINTS} />
                 </section>
 
@@ -672,98 +761,384 @@ export default function ProjectDetail() {
                 <section id="report" className="mb-14">
                     <h2 className="text-2xl font-semibold text-foreground mb-4">Test Report & Bug Finding</h2>
 
-                    <h3 className="text-foreground font-medium mb-3">Test summary</h3>
-                    <div className="rounded-2xl border border-neutral-200 bg-secondary p-5 mb-3">
-                        <Field label="Project / feature">{SUMMARY.project}</Field>
-                        <Field label="Total test cases executed">{SUMMARY.total}</Field>
+
+                    {/* Testing Results Overview */}
+                    <div className="mb-12">
+                        <div className="mb-6">
+                            <h3 className="text-foreground font-medium mb-3">
+                                Sample Bug Report
+                            </h3>
+                            <p className="mt-2 text-sm leading-relaxed text-[#64748B]">
+                                Test execution results across web, mobile, and API
+                                platforms, highlighting testing coverage and identified defects.
+                            </p>
+                        </div>
+
+                        {/* Overall Summary */}
+                        <div className="grid grid-cols-3 gap-3 mb-6">
+                            {[
+                                {
+                                    label: "Total Test Cases",
+                                    value: TEST_TOTALS.total,
+                                },
+                                {
+                                    label: "Confirmed Passed",
+                                    value: TEST_TOTALS.passed,
+                                },
+                                {
+                                    label: "Defects Logged",
+                                    value: TEST_TOTALS.defects,
+                                },
+                            ].map((item) => (
+                                <div
+                                    key={item.label}
+                                    className="rounded-2xl border border-neutral-200 bg-white p-4 sm:p-5"
+                                >
+                                    <p className="text-2xl sm:text-3xl font-semibold text-accent">
+                                        {item.value}
+                                    </p>
+                                    <p className="mt-2 text-xs sm:text-sm text-[#64748B]">
+                                        {item.label}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Platform Results */}
+                        <div className="space-y-4">
+                            {TEST_RESULTS.map((result) => {
+                                const passRate = (result.passed / result.total) * 100;
+                                const unconfirmed =
+                                    result.total - result.passed - (result.failed ?? 0);
+
+                                return (
+                                    <div
+                                        key={result.platform}
+                                        className="rounded-2xl border border-neutral-200 bg-white p-5 sm:p-6"
+                                    >
+                                        {/* Header */}
+                                        <div className="flex items-start justify-between gap-4 mb-5">
+                                            <div>
+                                                <h4 className="text-base font-semibold text-foreground">
+                                                    {result.platform}
+                                                </h4>
+                                                <p className="mt-1 text-sm leading-relaxed text-[#64748B]">
+                                                    {result.description}
+                                                </p>
+                                            </div>
+
+                                            <div className="text-right shrink-0">
+                                                <p className="text-2xl font-semibold text-accent">
+                                                    {passRate.toFixed(1)}%
+                                                </p>
+                                                <p className="text-xs text-[#64748B]">
+                                                    Pass Rate
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {/* Progress Bar */}
+                                        <div className="h-2 w-full overflow-hidden rounded-full bg-neutral-100">
+                                            <div
+                                                className="h-full rounded-full bg-accent transition-all duration-500"
+                                                style={{ width: `${passRate}%` }}
+                                            />
+                                        </div>
+
+                                        {/* Statistics */}
+                                        <div className="mt-5 grid grid-cols-3 gap-3 border-t border-neutral-100 pt-4">
+                                            <div>
+                                                <p className="text-xs text-[#64748B] mb-1">
+                                                    Total Cases
+                                                </p>
+                                                <p className="text-lg font-semibold text-foreground">
+                                                    {result.total}
+                                                </p>
+                                            </div>
+
+                                            <div>
+                                                <p className="text-xs text-[#64748B] mb-1">
+                                                    Passed
+                                                </p>
+                                                <p className="text-lg font-semibold text-foreground">
+                                                    {result.passed}
+                                                </p>
+                                            </div>
+
+                                            <div>
+                                                <p className="text-xs text-[#64748B] mb-1">
+                                                    Failed
+                                                </p>
+                                                <p className="text-lg font-semibold text-foreground">
+                                                    {result.failed ?? "TBC"}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        <p className="mt-4 text-xs leading-relaxed text-[#64748B]">
+                            Note: Pass rates are based on the available execution
+                            results. Defect counts represent reported issues and
+                            are not equivalent to failed test case counts.
+                        </p>
                     </div>
-                    <div className="grid grid-cols-3 gap-3 mb-4">
-                        {[
-                            { label: "Passed", value: SUMMARY.passed },
-                            { label: "Failed", value: SUMMARY.failed },
-                            { label: "Blocked", value: SUMMARY.blocked },
-                        ].map((s) => (
-                            <div
-                                key={s.label}
-                                className="rounded-2xl border border-neutral-200 bg-secondary px-3 py-5 text-center"
-                            >
-                                <p className="text-2xl font-medium text-accent">{s.value}</p>
-                                <p className="text-xs sm:text-sm text-[#2e4150] mt-1">{s.label}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <p className="text-sm text-[#2e4150] leading-relaxed mb-8">{SUMMARY.note}</p>
 
                     <h3 className="text-foreground font-medium mb-3">
                         Sample Bug Report
                     </h3>
-
-                    <div className="rounded-2xl border border-neutral-200 bg-secondary p-5 mb-8">
-                        <Field label="Bug ID & Title">
-                            {BUG.id} - {BUG.title}
-                        </Field>
-
-                        <Field label="Test Case ID">
-                            {BUG.testCaseId}
-                        </Field>
-
-                        <Field label="Reported Date">
-                            {BUG.reportedDate}
-                        </Field>
-
-                        <Field label="Priority">
-                            {BUG.priority}
-                        </Field>
-
-                        <Field label="Description">
-                            {BUG.description}
-                        </Field>
-
-                        <Field label="Expected Result">
-                            {BUG.expected}
-                        </Field>
-
-                        <Field label="Actual Result">
-                            {BUG.actual}
-                        </Field>
-
-                        <Field label="Attachment / Evidence">
-                            <a
-                                href={BUG.evidenceHref}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-accent hover:underline"
-                            >
-                                Documentation Testing
-                                <FiExternalLink size={14} />
-                            </a>
-                        </Field>
-                    </div>
-
-                    <h3 className="text-foreground font-medium mb-3">All defects found (9)</h3>
-                    <p className="text-[#2e4150] leading-relaxed mb-4">
-                        5 on web and 4 on mobile. Each one was logged with expected vs actual results and
-                        evidence, then re-tested after the fix before release.
-                    </p>
-                    <div className="space-y-3">
-                        {BUGS.map((b) => (
-                            <div key={b.id} className="rounded-2xl border border-neutral-200 bg-secondary p-4">
-                                <div className="flex flex-wrap items-center gap-2 mb-2">
-                                    <span className="text-xs font-medium text-accent">{b.id}</span>
-                                    <span className="text-xs rounded-full bg-neutral-100 px-2 py-0.5 text-[#2e4150]">
-                                        {b.priority}
-                                    </span>
+                    <div className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-sm mb-8">
+                        {/* Header */}
+                        <div className="flex flex-col gap-4 border-b border-neutral-200 pb-6">
+                            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                                <div>
+                                    <h3 className="mt-2 text-2xl font-semibold text-foreground leading-snug">
+                                        {BUG.title}
+                                    </h3>
                                 </div>
-                                <p className="text-foreground font-medium text-sm mb-2">{b.title}</p>
-                                <p className="text-sm text-[#2e4150] leading-relaxed">
-                                    <span className="font-medium">Expected:</span> {b.expected}
-                                </p>
-                                <p className="text-sm text-[#2e4150] leading-relaxed">
-                                    <span className="font-medium">Actual:</span> {b.actual}
-                                </p>
                             </div>
-                        ))}
+
+                            {/* Summary */}
+                            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                                <div className="rounded-2xl bg-[#F8FAFC] p-4">
+                                    <p className="text-xs font-medium uppercase tracking-wide text-[#64748B]">
+                                        Bug ID
+                                    </p>
+                                    <p className="mt-1 text-sm font-semibold text-foreground">{BUG.id}</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-[#F8FAFC] p-4">
+                                    <p className="text-xs font-medium uppercase tracking-wide text-[#64748B]">
+                                        Related TC-ID
+                                    </p>
+                                    <p className="mt-1 text-sm font-semibold text-foreground">{BUG.testCaseId}</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-[#F8FAFC] p-4">
+                                    <p className="text-xs font-medium uppercase tracking-wide text-[#64748B]">
+                                        Severity
+                                    </p>
+                                    <p className="mt-1 text-sm font-semibold text-foreground">{BUG.severity}</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-[#F8FAFC] p-4">
+                                    <p className="text-xs font-medium uppercase tracking-wide text-[#64748B]">
+                                        Priority
+                                    </p>
+                                    <p className="mt-1 text-sm font-semibold text-foreground">{BUG.priority}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+                            {/* Left */}
+                            <div className="space-y-6">
+                                <section className="rounded-2xl border border-neutral-200 p-5">
+                                    <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground">
+                                        Steps to Reproduce
+                                    </h4>
+                                    <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-relaxed text-[#334155]">
+                                        {BUG.steps.map((step, index) => (
+                                            <li key={index}>{step}</li>
+                                        ))}
+                                    </ol>
+                                </section>
+
+                                <section className="rounded-2xl border border-neutral-200 p-5">
+                                    <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground">
+                                        Notes from QA
+                                    </h4>
+                                    <p className="mt-3 text-sm leading-relaxed text-[#334155]">
+                                        {BUG.notes}
+                                    </p>
+                                </section>
+                            </div>
+
+                            {/* Right */}
+                            <div className="space-y-6">
+                                <section className="rounded-2xl border border-green-200 bg-green-50 p-5">
+                                    <h4 className="text-sm font-semibold uppercase tracking-wide text-green-700">
+                                        Expected Result
+                                    </h4>
+                                    <p className="mt-3 text-sm leading-relaxed text-[#334155]">
+                                        {BUG.expected}
+                                    </p>
+                                </section>
+
+                                <section className="rounded-2xl border border-red-200 bg-red-50 p-5">
+                                    <h4 className="text-sm font-semibold uppercase tracking-wide text-red-700">
+                                        Actual Result
+                                    </h4>
+                                    <p className="mt-3 text-sm leading-relaxed text-[#334155]">
+                                        {BUG.actual}
+                                    </p>
+                                </section>
+
+                                <section className="rounded-2xl border border-neutral-200 p-5">
+                                    <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground">
+                                        Documentation
+                                    </h4>
+
+                                    <a
+                                        href={BUG.evidenceHref}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                                    >
+                                        View Bug Evidence
+                                        <FiExternalLink size={14} />
+                                    </a>
+                                </section>
+                            </div>
+                        </div>
                     </div>
+
+
+                    <section id="all-defects" className="mb-14">
+                        {/* Section Header */}
+                        <div className="mb-6">
+                            <div className="flex flex-wrap items-end justify-between gap-4">
+                                <div>
+                                    <h3 className="text-xl font-semibold text-foreground">
+                                        All Defects Found
+                                    </h3>
+                                    <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#64748B]">
+                                        A collection of defects identified during manual testing
+                                        across the EmpathiCare web and mobile applications.
+                                        Each defect was documented with expected and actual results
+                                        to support debugging and verification.
+                                    </p>
+                                </div>
+
+                                <span className="text-sm text-[#64748B]">
+                                    {filteredBugs.length} of {BUGS.length} defects
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Summary */}
+                        <div className="mb-6 grid grid-cols-3 gap-3">
+                            {[
+                                { label: "Total Defects", value: BUGS.length },
+                                {
+                                    label: "Web",
+                                    value: BUGS.filter((b) => b.platform === "Web").length,
+                                },
+                                {
+                                    label: "Mobile",
+                                    value: BUGS.filter((b) => b.platform === "Mobile").length,
+                                },
+                            ].map((item) => (
+                                <div
+                                    key={item.label}
+                                    className="rounded-2xl border border-neutral-200 bg-white p-4 sm:p-5"
+                                >
+                                    <p className="text-xs font-medium uppercase tracking-wide text-[#64748B]">
+                                        {item.label}
+                                    </p>
+                                    <p className="mt-2 text-2xl font-semibold text-foreground">
+                                        {item.value}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+
+
+                        {/* Filter */}
+                        <div className="mb-6 flex flex-wrap gap-2">
+                            {["All", "Web", "Mobile"].map((filter) => (
+                                <button
+                                    key={filter}
+                                    type="button"
+                                    onClick={() => setBugFilter(filter)}
+                                    aria-pressed={bugFilter === filter}
+                                    className={`cursor-pointer rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-300 ${bugFilter === filter
+                                        ? "border-accent bg-accent text-white"
+                                        : "border-neutral-200 bg-white text-[#64748B] hover:border-accent hover:text-accent"
+                                        }`}
+                                >
+                                    {filter === "All" ? "All Defects" : filter}
+                                </button>
+                            ))}
+                        </div>
+
+
+                        {/* Bug Cards */}
+                        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                            {filteredBugs.map((bug) => (
+                                <article
+                                    key={bug.id}
+                                    className={`flex h-full flex-col rounded-2xl border bg-white p-5 transition-colors sm:p-6 ${bug.id === "BUG_004-WEB"
+                                        ? "border-[#1C3F8F]/30"
+                                        : "border-neutral-200 hover:border-neutral-300"
+                                        }`}
+                                >
+                                    {/* Card Header */}
+                                    <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+                                        <span className="font-mono text-xs font-medium text-[#1C3F8F]">
+                                            {bug.id}
+                                        </span>
+
+                                        <div className="flex flex-wrap items-center gap-2">
+                                            <span className="rounded-full border border-neutral-200 px-2.5 py-1 text-xs text-[#64748B]">
+                                                {bug.platform}
+                                            </span>
+                                            <span className="rounded-full bg-[#F1F5F9] px-2.5 py-1 text-xs font-medium text-[#475569]">
+                                                {bug.priority} Priority
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    {/* Title */}
+                                    <h4 className="mb-5 text-base font-semibold leading-snug text-foreground">
+                                        {bug.title}
+                                    </h4>
+
+                                    {/* Expected & Actual */}
+                                    <div className="flex-1 space-y-4 border-t border-neutral-200 pt-4">
+                                        <div>
+                                            <div className="mb-2 flex items-center gap-2">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                                                <p className="text-xs font-semibold uppercase tracking-wide text-[#64748B]">
+                                                    Expected Result
+                                                </p>
+                                            </div>
+                                            <p className="text-sm leading-relaxed text-[#334155]">
+                                                {bug.expected}
+                                            </p>
+                                        </div>
+
+                                        <div>
+                                            <div className="mb-2 flex items-center gap-2">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                                                <p className="text-xs font-semibold uppercase tracking-wide text-[#64748B]">
+                                                    Actual Result
+                                                </p>
+                                            </div>
+                                            <p className="text-sm leading-relaxed text-[#334155]">
+                                                {bug.actual}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Footer */}
+                                    {bug.testCaseId && (
+                                        <div className="mt-5 flex items-center justify-between gap-3 border-t border-neutral-200 pt-4">
+                                            <span className="text-xs text-[#64748B]">
+                                                Related Test Case
+                                            </span>
+                                            <span className="font-mono text-xs font-medium text-foreground">
+                                                {bug.testCaseId}
+                                            </span>
+                                        </div>
+                                    )}
+                                </article>
+                            ))}
+                        </div>
+                    </section>
                 </section>
 
                 {/* Process Improvement */}
